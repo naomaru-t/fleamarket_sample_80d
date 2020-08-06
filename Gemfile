@@ -85,3 +85,4 @@ gem 'jquery-rails'
 
 gem 'mini_magick'
 
+gem 'ancestry'
