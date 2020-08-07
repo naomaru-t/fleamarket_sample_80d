@@ -18,7 +18,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null:false|
 |introduction|text|null:false|
-|image_id|references|null:false,foreign_key:true|
 |user|references|null:false,foreign_key:true|
 |category_id|references|null:false,foreign_key:true|
 |brand_id|references|foreign_key:true|
@@ -33,7 +32,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- has_many :item_image
+- has_many :item_images
 - belongs_to :prefecture
 
 ## prefecture active hash
@@ -55,9 +54,10 @@ Things you may want to cover:
 |column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
+|item_id|references|null:false,foreign_key:true|
 
 ### Association
-- belongs_to :items
+- belongs_to :item
 
 ## categoryテーブル
 |column|Type|Options|
