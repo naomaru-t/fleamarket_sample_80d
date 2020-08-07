@@ -18,7 +18,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null:false|
 |introduction|text|null:false|
-|user|references|null:false,foreign_key:true|
+|user_id|references|null:false,foreign_key:true|
 |category_id|references|null:false,foreign_key:true|
 |brand_id|references|foreign_key:true|
 |condition|string|null:false|
@@ -90,6 +90,7 @@ Things you may want to cover:
 |family_name_kana|string|null:false|
 |birth_year|date|null:false|
 |birth_month|date|null:false|
+|birth_day|date|null:false|
 |use_id|references|null:false, foreign_key:true|
 
 ### Association
@@ -108,7 +109,7 @@ Things you may want to cover:
 |house_number|string|null:false|
 |building_name|string|-------|
 |phone_number|integer|-------|
-|use_id|references|null:false, foreign_key:true|
+|user_id|references|null:false, foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -117,7 +118,7 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null:false, unique:true|
+|name|string|null:false|
 |card_number|integer|null:false, unique:true|
 |expiration_year|integer|null:false|
 |expiration_month|integer|null:false|
