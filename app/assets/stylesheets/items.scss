@@ -1,3 +1,48 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// show.html.haml
+.total {
+  height: 100vh;
+}
+.top {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  margin: 30px 50px;
+  background-color: green;
+  &__title {
+    height: 30px;
+    background-color: red;
+  }
+  
+  &__image {
+    margin: 0 10px;
+    background-color: blue;
+    height: 100px;
+  }
+  .sub__image {
+    display: flex;
+    background-color: white;
+    margin: 0 10px;
+    height: 30px;
+    &--left {
+      width: 50%;
+      height: 100%;
+      background-color: yellow;
+    }
+    &--right {
+      width: 50%;
+      height: 100%;
+      background-color: red;
+    }
+  }
+  .table {
+    height: 300px;
+  }
+}
+
+
