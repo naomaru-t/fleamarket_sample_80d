@@ -33,13 +33,10 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :item_image
+- has_many :item_image
 - belongs_to :prefecture
 
-## prefectureテーブル
-|column|Type|Options|
-|------|----|-------|
-|name_id|integer|null:false|
+## prefecture active hash
 
 ### Association
 - has_many :items
@@ -60,7 +57,7 @@ Things you may want to cover:
 |image|string|null:false|
 
 ### Association
-- has_many :items
+- belongs_to :items
 
 ## categoryテーブル
 |column|Type|Options|
@@ -77,7 +74,6 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |mail|string|null: false, unique: true|
 |password|string|null: false|
-|have_card|enum|null: false|
 ### Association
 - has_many :items
 - has_one :profile
