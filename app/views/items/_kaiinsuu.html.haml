@@ -1,0 +1,19 @@
+.main-h
+  .main-h__kaiinsuu
+    .main-h__kaiinsuu__background
+      =image_tag 'material/pict/bg-topMiddleDl-pict.jpg', alt: 'a', class: 'main-h__kaiinsuu__background__image'
+    .main-h__kaiinsuu__content
+      %h2.main-h__kaiinsuu__content__subtitle
+        会員数日本一位
+      %p.main-h__kaiinsuu__content__text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .main-h__kaiinsuu__content__btn
+        =link_to "#", class: "main-h__kaiinsuu__content__btn__app" do
+          =image_tag 'material/logo/bag_app.png', class: "appstoreBtn"
+        =link_to "#", class: "main-h__kaiinsuu__content__btn__goo" do
+          =image_tag 'material/logo/google-play-badge.png', class: "googleplayBtn"
+

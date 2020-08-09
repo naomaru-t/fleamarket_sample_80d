@@ -1,0 +1,28 @@
+.main-h {
+  box-sizing: border-box;
+
+  &__displayBtn {
+    box-sizing: border-box;
+    background-color: lightgreen;
+    width: 120px;
+    color: white;
+    border-radius: 4%;
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    text-align: center;
+    text-decoration: none;
+    &__in-box{
+      padding: 15px 15px 10px 15px;
+      &--text {
+        font-size: 18px;
+      }
+      &--img {
+        padding-top: 5px;
+      }
+    }
+  }
+  .displayBtn:hover {
+    opacity: 0.7;
+  }
+}
