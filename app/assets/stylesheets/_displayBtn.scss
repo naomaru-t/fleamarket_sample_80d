@@ -1,10 +1,11 @@
-.main-h {
+.displayBtn {
   box-sizing: border-box;
+  
   &:hover {
     opacity: 0.6;
   }
 
-  &__displayBtn {
+  &__btn {
     box-sizing: border-box;
     background-color: rgb(60, 202, 206);;
     width: 120px;
