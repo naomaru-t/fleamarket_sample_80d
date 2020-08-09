@@ -3,46 +3,65 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // show.html.haml
-.total {
+html {
   height: 100vh;
 }
-.top {
+body {
+  margin: 0px;
   height: 100%;
 }
 
 .main {
   height: 100%;
-  margin: 30px 50px;
+  margin: 0px 50px;
   background-color: green;
-  &__title {
-    height: 30px;
-    background-color: red;
-  }
-  
-  &__image {
-    margin: 0 10px;
-    background-color: blue;
-    height: 100px;
-  }
-  .sub__image {
-    display: flex;
-    background-color: white;
-    margin: 0 10px;
-    height: 30px;
-    &--left {
-      width: 50%;
-      height: 100%;
-      background-color: yellow;
+  .topContent {
+    height: 600px;
+    padding: 0 300px;
+    .itemBox {
+      &__title {
+        height: 50px;
+        background-color: red;
+      }
+      &__image {
+        &--main {
+          &--sub {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+      &__price {
+        text-align: center;
+      }
+      &__detail {
+        height: 100px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
     }
-    &--right {
-      width: 50%;
-      height: 100%;
-      background-color: red;
+    .commentBox {
+      padding-top: 10px;
     }
   }
-  .table {
-    height: 300px;
-  }
+    li {
+      list-style: none;
+      text-align: center;
+    }
+    td {
+      border: solid 1px black;
+    } 
+    table td:nth-child(1) {
+      width: 120px;
+      background-color: lightgray;
+      font-weight: bold;
+    }
+    table td:nth-child(2) {
+      background-color: white;
+      font-weight: bold;
+    }
 }
 
 

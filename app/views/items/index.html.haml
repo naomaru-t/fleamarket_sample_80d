@@ -1,37 +1,52 @@
-%html.total
-  %body.top
-    .main 
-      .main__title ee
-      .main__image
-      .sub__image
-        .sub__image--left
-        .sub__image--right
-      %h1 値段
-      %ul
-        %li (税込)送料込み
-      %table
-        %tr
-          %td 出品者
-          %td 
-        %tr
-          %td カテゴリー
-          %td 
-        %tr
-          %td ブランド
-          %td
-        %tr
-          %td 靴のサイズ
-          %td
-        %tr
-          %td 商品の状態
-          %td
-        %tr
-          %td 配送料の負担
-          %td
-        %tr
-          %td 発信元の地域
-          %td
-        %tr
-          %td 発送日の目安
-          %td
-    
+%html
+  %body
+    .main
+      .topContent
+        .itemBox 
+          .itemBox__title eee
+          .itemBox__image 
+            %ul.itemBox__image--main
+              %li aaaaa
+              %li 
+                %ul.itemBox__image--main--sub
+                  %li sax
+                  %li dddd
+          .itemBox__price 
+            %span a
+            .itemBox__price--detail
+              %span (税込) 送料込み
+          .itemBox__detail aaaaaaaaaaaaaaaaaaaaa
+          %table
+            %tr
+              %td 出品者
+              %td.table__detail ボス
+            %tr
+              %td カテゴリー
+              %td 
+            %tr
+              %td.table__title ブランド
+              %td
+            %tr
+              %td.table__title 靴のサイズ
+              %td
+            %tr
+              %td.table__title 商品の状態
+              %td
+            %tr
+              %td.table__title 配送料の負担
+              %td
+            %tr
+              %td.table__title 発信元の地域
+              %td
+            %tr
+              %td.table__title 発送日の目安
+              %td
+
+        .commentBox
+          %textarea{name: "example", cols: "50", rows: "10"}
+          %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          -# - if log_in?
+          -#   = f.submit 'コメント送信', class: 'btn btn-black btn-block'
+
+
+
