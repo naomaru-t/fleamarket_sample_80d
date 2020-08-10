@@ -10,18 +10,21 @@ body {
   margin: 0px;
   height: 100%;
 }
-
 .main {
   height: 100%;
-  margin: 0px 50px;
-  background-color: green;
+  background-color: #f8f8f8;
   .topContent {
     height: 600px;
-    padding: 0 300px;
+    padding: 0 400px;
     .itemBox {
+      padding: 0 20px;
+      background-color: white;
       &__title {
+        text-align: center;
+        margin-top: 5px;
         height: 50px;
         background-color: red;
+        font-weight: bold;
       }
       &__image {
         &--main {
@@ -35,6 +38,7 @@ body {
         text-align: center;
       }
       &__detail {
+        word-wrap: break-word;
         height: 100px;
       }
       table {
@@ -43,7 +47,13 @@ body {
       }
     }
     .commentBox {
-      padding-top: 10px;
+      background-color: white;
+      padding: 20px 20px 0 20px;
+    }
+    .links {
+      padding-left: 0px;
+      display: flex;
+      justify-content: space-between;
     }
   }
     li {
@@ -54,11 +64,13 @@ body {
       border: solid 1px black;
     } 
     table td:nth-child(1) {
+      text-align: center;
       width: 120px;
-      background-color: lightgray;
+      background-color: #eee;
       font-weight: bold;
     }
     table td:nth-child(2) {
+      padding-left: 10px;
       background-color: white;
       font-weight: bold;
     }
