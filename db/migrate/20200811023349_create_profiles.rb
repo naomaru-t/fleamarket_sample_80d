@@ -10,7 +10,7 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.date :birth_year,                      null: false
       t.date :birth_month,                     null: false
       t.date :birth_day,                       null: false
-      t.references :user, foreign_key: true, null: false
+      t.references :user, foreign_key: true,   null: false
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_023349) do
+ActiveRecord::Schema.define(version: 2020_08_11_030226) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2020_08_11_023349) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "sendings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_name_kana", null: false
+    t.integer "post_code", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_sendings_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -54,4 +69,5 @@ ActiveRecord::Schema.define(version: 2020_08_11_023349) do
 
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "sendings", "users"
 end
