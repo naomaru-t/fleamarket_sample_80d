@@ -1,8 +1,14 @@
-.main-h
-  .main-h__daredemo
-    .main-h__daredemo____background
-      =image_tag "material/pict/bg-appBanner-pict.jpg", class: "daredemo____background__img"
-    .main-h__daredemo__list__text
+.daredemo
+  .daredemo__background
+    = image_tag "material/pict/bg-appBanner-pict.jpg", class: "daredemo__background__img"
+  .daredemo__content
+    .daredemo__content__subtitle
       だれでもかんたん、人生を変えるフリマアプリ
-      %br
+    .daredemo__content__text
       今すぐ無料ダウンロード！
+    .daredemo__content__btn
+      =link_to "#", class: "daredemo__content__btn__app" do
+        =image_tag 'material/logo/bag_app.png', class: "appstoreBtn"
+      =link_to "#", class: "daredemo__content__btn__goo" do
+        =image_tag 'material/logo/google-play-badge.png', class: "googleplayBtn"
+

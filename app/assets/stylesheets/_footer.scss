@@ -1,0 +1,48 @@
+.footer {
+  background-color: rgb(39,39,39);
+  padding: 60px 0;
+
+  &__contents {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+ 
+    
+
+    &__content {
+      
+      
+      &__subtitle {
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        &__lists {
+          list-style-type: none;
+          margin-top: 20px;
+
+          &__list {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &__logo {
+    text-align: center;
+
+  }
+
+  &__title {
+    color: white;
+    text-align: center;
+  }
+
+}
+
+.footer__logo__link__image {
+  width: 160px;
+  height: 46px;
+}
