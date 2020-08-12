@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
-  belong_to :user
-  validates :content, presence: true, unless: :image?
+  belongs_to :user
+  validates :name, presence: true
+  mount_uploader :image, ImageUploader
 end

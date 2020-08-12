@@ -1,0 +1,19 @@
+.pickup {
+  &__category {
+    &__subtitle1 {
+
+    }
+    &__subtitle2 {
+
+    }
+    &__itemlists {
+      flex-direction: column-reverse;
+      &__name {
+
+      }
+      &__price {
+
+      }
+    }
+  }
+}
