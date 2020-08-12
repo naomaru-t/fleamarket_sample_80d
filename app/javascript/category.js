@@ -25,7 +25,6 @@ $(function(){
   }
 
   $('#category_id').on('change',function(){
-    console.log(1)
     var parentId = document.getElementById('category_id').value;
     if (parentId != ""){
       $.ajax({
@@ -35,7 +34,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        console.log(2)
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
         var insertHTML = '';
