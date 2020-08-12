@@ -1,2 +1,80 @@
-%h1 Items#index
-%p Findddd me in app/views/items/index.html.erb
+%html
+  %body
+    .main
+      .topContent
+        .itemBox 
+          .itemBox__title eee
+          .itemBox__image 
+            %ul.itemBox__image--main
+              %li aaaaa
+              -# saler_id.image
+              %li 
+                %ul.itemBox__image--main--sub
+                  %li sax
+                  -# saler.imege_id
+                  %li dddd
+          .itemBox__price 
+            %span a
+            .itemBox__price--detail
+              %span (税込) 送料込み
+          .itemBox__detail aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          %table
+            %tr
+              %td 出品者
+              %td.table__detail ボス
+            %tr
+              %td カテゴリー
+              %td 
+            %tr
+              %td.table__title ブランド
+              %td
+            %tr
+              %td.table__title 靴のサイズ
+              %td
+            %tr
+              %td.table__title 商品の状態
+              %td
+            %tr
+              %td.table__title 配送料の負担
+              %td
+            %tr
+              %td.table__title 発信元の地域
+              %td
+            %tr
+              %td.table__title 発送日の目安
+              %td
+
+        .commentBox
+          =form_with() do |form|
+            = form.text_area :text, placeholder: "コメントする" , cols: "40", rows: "4", class: "textbox"
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = form.submit "コメントする", class: "form__submit"
+            -# %textarea{name: "example", cols: "50", rows: "10"}
+            -# %p 相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          -# - if user_signed_in? && current_user.id != item.saler_id
+          -# = f.submit 'コメント送信', class: 'btn btn-black btn-block'
+
+        %ul.links
+          %li= link_to '前のページ'
+          %li= link_to '後ろのページ'
+
+        
+
+          -# 出品者用機能
+          -# - if user_signed_in? && current_user.id == item.saler_id
+          -# = link_to '編集', edit_item_path(items.id), method: :get
+          -# = link_to '削除', item_path(items.id), method: :delete
+          -#  end
+
+
+          -# 出品者以外用機能
+          -# - if user_signed_in? && current_user.id != item.saler_id
+          -# = link_to '購入画面へ', _path(items.id), method: :
+          -#  end
+
+
+        -# 商品閲覧
+        -#   if current_user && current_user = nil
+        
+        = render "form"
+        
