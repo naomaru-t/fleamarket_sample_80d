@@ -3,7 +3,7 @@ class SendingsController < ApplicationController
     @sending = Sending.new
   end
   def create
-    @sending = Sending.create(sending_params)
+    @sending = Sending.new(sending_params)
     if @sending.save
       redirect_to root_path
     else

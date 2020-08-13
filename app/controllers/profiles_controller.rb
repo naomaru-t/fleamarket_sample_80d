@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
   def create
-    @profile = Profile.create(profile_params)
+    @profile = Profile.new(profile_params)
     if @profile.save
       redirect_to new_sending_path
     else
