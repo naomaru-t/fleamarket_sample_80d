@@ -1,3 +1,107 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// show.html.haml
+html {
+  height: 100vh;
+}
+body {
+  margin: 0px;
+  height: 100%;
+}
+.main {
+  height: 100%;
+  background-color: #f8f8f8;
+  .header {
+    height: 200px;
+    background-color: skyblue;
+  }
+  .topContent {
+    height: 600px;
+    padding: 0 100px;
+    .itemBox {
+      padding: 0 20px;
+      background-color: white;
+      &__title {
+        text-align: center;
+        margin-top: 5px;
+        height: 50px;
+        font-weight: bold;
+      }
+      &__image {
+        &--main {
+          &--sub {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+      &__price {
+        text-align: center;
+      }
+      &__detail {
+        word-wrap: break-word;
+        height: 100px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    }
+    .commentBox {
+      margin-top: 10px; 
+      background-color: white;
+      padding: 20px 20px 0 20px;
+      &__textbox{
+        width: 100%;
+      }
+      &__form {
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+        &--submit { 
+          height: 40px;
+          text-align: center;
+          font-size: 18px;
+          width: 400px;
+          background-color: #3CCACE;
+          color: #fff;
+          border: 1px solid #3CCACE;
+          border-radius: 100px;
+        }
+        .fas.fa-comment {
+          position: absolute;
+          top: 12px;
+          left: 125px;
+          color: #fff;
+        }
+      }
+    }
+    .links {
+      padding-left: 0px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+    li {
+      list-style: none;
+      text-align: center;
+    }
+    td {
+      border: solid 1px black;
+    } 
+    table td:nth-child(1) {
+      text-align: center;
+      width: 120px;
+      background-color: #eee;
+      font-weight: bold;
+    }
+    table td:nth-child(2) {
+      padding-left: 10px;
+      background-color: white;
+      font-weight: bold;
+    }
+}
+
+
