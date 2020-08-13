@@ -2,17 +2,17 @@
   .header
   .sell
     = form_with model: @item, local:true do |f|
-      .sell__image
-        .form_label
-          %label 出品画像
-          %span.hissu 必須
-        %p 最大10枚までアップロードできます
-        = f.fields_for :images do |i|
-          .input-area
-            = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-            %label{for: "img-file"}
-              %i.fas.fa-camera
-              とりあえずここまで
+      -# .sell__image
+      -#   .form_label
+      -#     %label 出品画像
+      -#     %span.hissu 必須
+      -#   %p 最大10枚までアップロードできます
+      -#   = f.fields_for :images do |i|
+      -#     .input-area
+      -#       = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+      -#       %label{for: "img-file"}
+      -#         %i.fas.fa-camera
+      -#         とりあえずここまで
 
       .sell__item
         .form_label
@@ -30,15 +30,22 @@
         .form_label
           %label カテゴリー
           %span.hissu 必須
-        = f.text_field :category, placeholder: "とりあえず入れただけancestry必須", class: "from__item__category"
-        .form_label
-          %label ブランド
-          %span.ninni 任意
-        = f.text_field :brand, placeholder: "例）シャネル", class: "from__item__brand"
+        = f.text_field :category, placeholder: "とりあえず入れただけancestryで実装予定", class: "from__item__category"
+        
+        -# .form_label
+        -#   %label サイズ
+        -#   %span.hissu 必須
+        -# = f.collection_select :size, Size.all, :name, :name, {include_blank: "選択してください"}, {class: "from__item__size"}
+        
+        = f.fields_for :brand do |brand|
+          .form_label
+            %label ブランド
+            %span.ninni 任意
+          = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "from__item__brand"
         .form_label
           %label 商品の状態
           %span.hissu 必須
-        = f.text_field :sell_status, placeholder: "とりあえず入れただけactivehash", class: "from__item__sell_status"
+        = f.collection_select :condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "from__item__condition"}
       
       .sell__delivery
         .form_label
@@ -46,15 +53,26 @@
         .form_label
           %label 配送料の負担
           %span.hissu 必須
-        = f.text_field :postage_payer, placeholder: "入れただけactivehash", class: "from__item__postage_payer"
+        = f.collection_select :postagepayer_id, Postagepayer.all, :id, :name, {include_blank: "選択してください"}, {class: "from__item__postagepayer"}
+        .form_label
+          %label 送料込み
+          %span.hissu 必須
+        = f.collection_select :postagetype_id, Postagetype.first(10), :id, :name, {include_blank: "選択してください"}, {class: "from__item__postagetypesell"}
+        -# .form_label
+        -#   %label 着払い
+        -#   %span.hissu 必須
+        -# = f.collection_select :postagetype, Postagetype.last(4), :name, :name, {include_blank: "選択してください"}, {class: "from__item__postagetypebuy"}
+        
+        
         .form_label
           %label 発送元の地域
           %span.hissu 必須
-        = f.text_field :prefecture, placeholder: "入れただけactivehash", class: "from__item__prefecture"
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "from__item__prefecture"}
         .form_label
           %label 発送までの日数
           %span.hissu 必須
-        = f.text_field :preparation_days, placeholder: "入れただけactivehash", class: "from__item__preparation_days"
+        = f.collection_select :preparationdays_id, Preparationdays.all, :id, :name, {include_blank: "選択してください"}, {class: "from__item__preparationdays"}
+        
       .sell__price
         .form_label
         %label 価格(¥300~9,999,999)
@@ -64,11 +82,15 @@
         %span ¥
         = f.number_field :price, placeholder: "0", class: "from__item__price"
         .form_label 販売手数料（10%）
+      
       .sell__profit
         .form_label
         %label 販売利益
+      
       .sell__btn
       = f.submit "出品する", class: "sell-btn-red"
       = link_to "戻る", :root, class: "back-btn"
+
+      = f.hidden_field :sellstatus_id, value: 1 #sellstatusの初期値として1なら出品中、2なら売却済み
 
   .footer
