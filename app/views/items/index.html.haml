@@ -1,13 +1,5 @@
-%h1 Items#index
-%p Findddd me in app/views/items/index.html.erb
-%a.post{:href => "/items/new"} 出品する
--# - @items.each do |item|
--#   = item.prefecture_id
-
--# - @aaaa = Item.find_by(name:"てすと名前")キーバリューで検索できる
-- @aaaa = Item.find(1)
-= @aaaa.prefecture.name
-= @aaaa.brand.name
-= @aaaa.sellstatus.name
--# ↑これで登録した人の都道府県見れる
+.main= link_to '出品', new_item_path
+%br/
+.contents
+  = render @items
 

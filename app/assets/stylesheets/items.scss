@@ -25,6 +25,10 @@
   border-radius: 2px;
   padding: 1px 3px;
 }
+.en {
+  text-align: end;
+  display: inline-block;
+}
 
 .sell-btn-red {
   color: white;
@@ -34,18 +38,39 @@
 select {
   height: 30px;
 }
+img {
+  margin-right: 2px;
+}
 
 .main {
 
   .header {
     height: 200px;
-    background-color: lightgreen;
+    background-color: #3CCACE;
   }
 
   .sell {
-    width: 78%;
+    width: 50%;
     background-color: lightgray;
     margin: 0 auto;
+
+    .form__input {
+      width: 100%;
+      height: 48px;
+      margin:3px 0 18px;
+      padding: 0 10px;
+    }
+
+    .form__textarea {
+      width: 100%;
+      height: 170px;
+      padding: 0 10px;
+      margin:3px 0 18px;
+    }
+    hr {
+      height: 5px;
+      background-color: black;
+    }
 
       &__image {
         @include sell-style(pink)
@@ -62,14 +87,34 @@ select {
       &__price {
         @include sell-style(pink)
       }
-      &__profit {
-        @include sell-style(yellow)
+      .form__input__price {
+        text-align: end;
+        width: 50%;
+        height: 48px;
+        margin:3px 0 18px;
+        margin-right: auto;
+      }
+      &__btn {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 20px 0;
+        .sell-btn-red {
+          width: 70%;
+          height: 40px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .back-btn {
+          margin-top: 20px;
+          display: block;
+        }
       }
 
   }
 
-  // .footer {
-  //   height: 200px;
-  //   background-color: lightgreen;
-  // }
+  .footer {
+    height: 200px;
+    background-color: #3CCACE;
+  }
 }

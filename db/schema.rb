@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_054213) do
+ActiveRecord::Schema.define(version: 2020_08_13_053632) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -34,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_08_12_054213) do
     t.string "category", null: false
     t.string "size"
     t.integer "brand_id"
+    t.integer "buyer_id"
+    t.integer "saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -50,4 +60,5 @@ ActiveRecord::Schema.define(version: 2020_08_12_054213) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
 end

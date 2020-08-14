@@ -15,8 +15,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :category,                           null: false
       t.string :size
       t.integer :brand_id
-      # t.integer :buyer_id
-      # t.integer :saler_id
+      t.integer :buyer_id
+      t.integer :saler_id
     end
   end
 end
