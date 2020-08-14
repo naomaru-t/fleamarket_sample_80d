@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
 
-  
-
   resources :profiles,only: [:new, :create]
   resources :sendings,only: [:new, :create]
   resources :credit_cards, only: [:new, :create] do 
@@ -16,4 +14,3 @@ Rails.application.routes.draw do
     end
   end
 end  
-
