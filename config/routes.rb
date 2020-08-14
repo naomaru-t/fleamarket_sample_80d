@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :profiles,only: [:new, :create]
   resources :sendings,only: [:new, :create]
-  resources :credit_cards, only: [:new, :create] do 
+  resources :credit_cards, only: [:new, :create, :show, :destroy] do 
   end
 
   resources :items do
