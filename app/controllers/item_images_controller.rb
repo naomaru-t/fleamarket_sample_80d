@@ -1,3 +1,5 @@
 class ItemImagesController < ApplicationController
-  @item_images = Item.all
+  def create
+    
+  end
 end

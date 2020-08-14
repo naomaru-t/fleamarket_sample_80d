@@ -7,11 +7,16 @@
 
     }
     &__itemlists {
-      flex-direction: column-reverse;
+      display: flex;
+      display: block;
+      flex-direction: row-reverse;
       &__name {
-
+        display: flex;
+        display: block;
+        flex-direction: row-reverse;
       }
       &__price {
+        display: flex;
 
       }
     }
