@@ -1,0 +1,40 @@
+%h2 sending
+= form_with model: @sending, local: true do |f|
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name, autofocus: true
+  .field
+    = f.label :family_name
+    %br/
+    = f.text_field :family_name, autofocus: true
+  .field
+    = f.label :first_name_kana
+    %br/
+    = f.text_field :first_name_kana, autofocus: true
+  .field
+    = f.label :family_name_kana
+    %br/
+    = f.text_field :family_name_kana, autofocus: true
+  .field
+    = f.label :post_code
+    %br/
+    = f.text_field :post_code, autofocus: true
+  //.field
+  //  = f.label :prefecture
+  //  %br/
+  //  = f.text_field :prefecture, autofocus: true
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city, autofocus: true
+  .field
+    = f.label :house_number
+    %br/
+    = f.text_field :house_number, autofocus: true
+  .field
+    = f.label :building_name
+    %br/
+    = f.text_field :building_name
+  .actions
+    = f.submit "登録"
