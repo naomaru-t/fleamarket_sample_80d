@@ -8,16 +8,16 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
-    @item.build_brand
+    @item.images.new #-商品出品時に画像も同時に保存されるように記述
+    @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
   end
 
   def create
     @item = Item.new(item_params)
     # @item.user_id = current_user.id　ログイン機能が実装してから
-    if @item.save!
+    if @item.save
       item = Item.find(@item.id)
-      redirect_to root_path, notice: 'アイテムが保存された'
+      redirect_to root_path
     else
       render :new
     end

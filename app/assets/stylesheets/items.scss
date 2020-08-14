@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
 }
-
+// 商品出品画面用のmixin
 @mixin sell-style($color) {
   font-size: 14px;
   padding: 40px;
   background-color: $color;
 }
-
+// 赤枠白字のフォント
 .hissu {
   color: white;
   background: red;
@@ -16,7 +16,7 @@
   border-radius: 2px;
   padding: 1px 3px;
 }
-
+// グレー枠白字のフォント
 .ninni {
   color: white;
   background: lightgray;
@@ -25,19 +25,7 @@
   border-radius: 2px;
   padding: 1px 3px;
 }
-.en {
-  text-align: end;
-  display: inline-block;
-}
 
-.sell-btn-red {
-  color: white;
-  background: red;
-}
-
-select {
-  height: 30px;
-}
 img {
   margin-right: 2px;
 }
@@ -67,43 +55,41 @@ img {
       padding: 0 10px;
       margin:3px 0 18px;
     }
-    hr {
-      height: 5px;
-      background-color: black;
-    }
-
       &__image {
-        @include sell-style(pink)
+        @include sell-style(#ffffff)
       }
       &__item {
-        @include sell-style(lightgray )
+        @include sell-style(#ffffff)
       }
       &__details {
-        @include sell-style(lightgreen)
+        @include sell-style(#ffffff)
       }
       &__delivery {
-        @include sell-style(lightblue)
+        @include sell-style(#ffffff)
       }
       &__price {
-        @include sell-style(pink)
+        @include sell-style(#ffffff)
       }
       .form__input__price {
         text-align: end;
-        width: 50%;
+        width: 60%;
         height: 48px;
         margin:3px 0 18px;
         margin-right: auto;
       }
       &__btn {
+        @include sell-style(#ffffff);
         width: 100%;
         display: block;
         text-align: center;
         padding: 20px 0;
-        .sell-btn-red {
+        .sell-btn-blue {
           width: 70%;
           height: 40px;
           margin-left: auto;
           margin-right: auto;
+          background: #3CCACE;
+          color: #ffffff;
         }
         .back-btn {
           margin-top: 20px;

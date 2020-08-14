@@ -13,10 +13,10 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :sellstatus_id,                     null: false
       t.integer :price,                             null: false
       t.string :category,                           null: false
-      t.string :size
       t.integer :brand_id
       t.integer :buyer_id
       t.integer :saler_id
+      # user関連はログイン機能実装後調整します
     end
   end
 end

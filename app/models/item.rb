@@ -5,8 +5,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postagepayer
   belongs_to_active_hash :postagetype
   belongs_to_active_hash :preparationdays
-  belongs_to_active_hash :size
   belongs_to_active_hash :sellstatus
+  belongs_to :user
+  belongs_to :category
   belongs_to :brand, dependent: :destroy, optional: true
   accepts_nested_attributes_for :brand, allow_destroy: true
   has_many :images, dependent: :destroy
