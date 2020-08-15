@@ -1,4 +1,6 @@
 class CreditCardsController < ApplicationController
+  before_action :move_to_root
+
   require "payjp"
 
 
@@ -81,5 +83,11 @@ class CreditCardsController < ApplicationController
       end 
     end
   end
+
+
+  private
+  def move_to_root
+    redirect_to root_path unless user_signed_in?
+  end 
 
 end
