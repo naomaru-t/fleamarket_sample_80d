@@ -1,8 +1,8 @@
 .pickup {
   display: flex;
   justify-content: center;
+  background-color: #f8f8f8;
   &__category {
-   
 
     &--subtitle1 {
       text-align: center;
@@ -23,7 +23,6 @@
       background-color: red;
       height: 245px;
       width: 100%;
-      
 
       &__image{
         
@@ -38,11 +37,7 @@
           display: flex;
 
           &--box {
-            margin-right: 190px;
-          }
-
-          &--tax {
-           
+            margin-right: 15px;
           }
         }
       }
@@ -58,4 +53,12 @@
 .taxin {
   font-size: 10px;
   text-align: left;
+}
+.star {
+  display: inline;
+  margin-left: 105px;
+}
+
+.starnumber {
+  display: inline;
 }
