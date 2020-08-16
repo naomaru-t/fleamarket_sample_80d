@@ -32,5 +32,22 @@
       margin-bottom: 0;
     }
 
+    &--btn {
+      &--app{
+        text-decoration: none;
+      }
+      &--goo {
+        text-decoration: none;
+      }
+    }
   }
+}
+
+.appstoreBtn {
+  width: 160px;
+  margin: 12px 0px 12px 12px;
+}
+
+.googleplayBtn {
+  width: 185px;
 }

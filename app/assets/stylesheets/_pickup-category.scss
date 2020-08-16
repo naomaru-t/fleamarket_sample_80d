@@ -20,7 +20,7 @@
 
     }
     &--itemlists {
-      background-color: red;
+      background-color: lightgray;
       height: 245px;
       width: 100%;
 
@@ -61,4 +61,8 @@
 
 .starnumber {
   display: inline;
+}
+
+.itembtn--link {
+  text-decoration: none;
 }
