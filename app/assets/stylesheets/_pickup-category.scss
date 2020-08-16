@@ -1,21 +1,25 @@
 .pickup {
   &__category {
-    &__subtitle1 {
+    &--subtitle1 {
 
     }
-    &__subtitle2 {
+    &--subtitle2 {
 
     }
-    &__itemlists {
+    &--itemlists {
+
+      &--image{
+        
+      }
       display: flex;
       display: block;
       flex-direction: row-reverse;
-      &__name {
+      &--name {
         display: flex;
         display: block;
         flex-direction: row-reverse;
       }
-      &__price {
+      &--price {
         display: flex;
 
       }
