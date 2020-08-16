@@ -1,0 +1,98 @@
+.main
+  .header    
+  -#後ほど追記
+  .sell
+    = form_with model: @item, local:true do |f|
+      .sell__image
+        .form_label
+          %label 出品画像
+          %span.hissu 必須
+        %p 最大10枚までアップロードできます
+        #image-box
+          #previews
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+          = f.fields_for :images do |image|
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :src, class: 'js-file', :required => ""
+              %span.js-remove 削除
+
+            - if @item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
+              = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+              .js-remove 削除
+
+      .sell__item
+        .form_label
+          %label 商品名
+          %span.hissu 必須
+        = f.text_field :name, placeholder: "40文字まで", class: "form__input" ,id:  "item_name", maxlength: 40, :required => ""
+        .form_label
+          %label 商品名
+          %span.hissu 必須
+        = f.text_area :introduction, placeholder: "商品の説明（必須1,000文字以内）", class: "form__textarea" , maxlength: 1000, :required => ""
+
+      .sell__details
+        .form_label
+          %label 商品の詳細
+        .form_label
+          %label カテゴリー
+          %span.hissu 必須
+        = f.text_field :category, placeholder: "とりあえず入れただけancestryで実装予定", class: "form__input", :required => ""
+        
+        = f.fields_for :brand do |brand|
+          .form_label
+            %label ブランド
+            %span.ninni 任意
+          = brand.text_field :name, placeholder: "例）シャネル", class: "form__input"
+        .form_label
+          %label 商品の状態
+          %span.hissu 必須
+        = f.collection_select :condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "form__input", :required => ""}
+      
+      .sell__delivery
+        .form_label
+        %label 配送について
+        .form_label
+          %label 配送料の負担
+          %span.hissu 必須
+        = f.collection_select :postagepayer_id, Postagepayer.all, :id, :name, {include_blank: "選択してください"}, {class: "form__input", :required => ""}
+        ※配送料の負担を選択後、どちらか選択↓
+        .form_label
+          %label 配送方法
+          %span.hissu 必須
+        = f.collection_select :postagetype_id, Postagetype.all, :id, :name, {include_blank: "選択してください"}, {class: "form__input", :required => ""}
+        
+        .form_label
+          %label 発送元の地域
+          %span.hissu 必須
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "form__input", :required => ""}
+        .form_label
+          %label 発送までの日数
+          %span.hissu 必須
+        = f.collection_select :preparationdays_id, Preparationdays.all, :id, :name, {include_blank: "選択してください"}, {class: "form__input", :required => ""}
+        
+      .sell__price
+        .form_label
+        %label 価格(¥300~9,999,999)※半角
+        .form_label
+        %label 販売価格
+        %span.hissu 必須
+        %span ¥
+        = f.number_field :price, placeholder: "0", class: "form__input__price", min: 300, max: 9999999, :required => ""
+
+      
+      .sell__btn
+        = f.submit "出品する", class: "sell-btn-blue",id: "send"
+        = link_to "戻る", :root, class: "back-btn"
+
+      = f.hidden_field :sellstatus_id, value: 1 #sellstatusの初期値として1なら出品中、2なら売却済み
+
+      -# ログイン機能実装後、出品アイテムにcurrent_user.idをuser_idとsaler_idを紐付ける
+
+  .footer
+  -#後ほど追記

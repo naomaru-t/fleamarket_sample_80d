@@ -7,6 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('../item')
+require("jquery")
+require('../payjp')
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,3 +1,19 @@
+-if user_signed_in?
+  %h2 ログインしています
+  = link_to destroy_user_session_path, method: :delete do
+    ログアウト
+-else 
+  %h2 ログインしていません
+  = link_to new_user_registration_path do
+    新規登録
+  = link_to new_user_session_path do
+    ログイン
+    
+.main= link_to '出品', new_item_path
+%br/
+.contents
+  = render @items
+
 =render "header"
 =render "jinsei"
 =render "erabareru"
