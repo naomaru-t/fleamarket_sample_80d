@@ -3,10 +3,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
+    # 後に実装予定
+    # @items = Item.includes(:images).order('created_at DESC').limit(5).where.not(condition: 1).where(condition: 0)
   end
 
   def new
-    
+
     @item = Item.new
     @item.images.new #-商品出品時に画像も同時に保存されるように記述
     # @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
