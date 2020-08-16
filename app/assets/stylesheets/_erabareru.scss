@@ -8,11 +8,19 @@
     line-height: 1.4;
     font-weight: bold;
     margin-bottom: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 0;
     position: relative;
   }
 
   &__line {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+
+    &--solid {
+      width: 100px;
+      border-top: solid 4px #3CCACE;
+    }
 
   }
 

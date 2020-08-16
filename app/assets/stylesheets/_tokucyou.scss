@@ -7,13 +7,20 @@
     font-size: 26px;
     line-height: 1.4;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding-bottom: 15px;
     position: relative;
   }
 
   &__line {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    &--solid {
+      width: 100px;
+      border-top: solid 4px #3CCACE;
+    }
+    
   }
 
   &__lists {

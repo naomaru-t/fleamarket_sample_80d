@@ -1,28 +1,61 @@
 .pickup {
+  display: flex;
+  justify-content: center;
   &__category {
-    &--subtitle1 {
+   
 
+    &--subtitle1 {
+      text-align: center;
+      font-size: 28px;
     }
     &--subtitle2 {
+      text-align: center;
+      color: #3CCACE;
+      font-size: 24px;
+
+      &--link {
+        color: #3CCACE;
+        text-decoration: none;
+      }
 
     }
     &--itemlists {
+      background-color: red;
+      height: 245px;
+      width: 100%;
+      
 
-      &--image{
+      &__image{
         
+        &--itembtn{
+          height: 150px;
+          width: 220px;
+        }
       }
-      display: flex;
-      display: block;
-      flex-direction: row-reverse;
-      &--name {
-        display: flex;
-        display: block;
-        flex-direction: row-reverse;
-      }
-      &--price {
-        display: flex;
 
+      &--detail {
+        &--boxes {
+          display: flex;
+
+          &--box {
+            margin-right: 190px;
+          }
+
+          &--tax {
+           
+          }
+        }
       }
     }
   }
+}
+
+.itembtn__img {
+  height: 150px;
+  width: 220px;
+}
+
+.taxin {
+  font-size: 10px;
+  text-align: left;
 }

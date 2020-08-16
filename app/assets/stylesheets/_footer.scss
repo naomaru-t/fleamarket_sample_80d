@@ -6,24 +6,26 @@
     display: flex;
     justify-content: space-around;
     list-style-type: none;
- 
+    color: white;
     
 
-    &__content {
+    &--content {
       
       
       &--subtitle {
-        color: white;
         text-align: center;
         font-size: 16px;
+
         &--lists {
           list-style-type: none;
           margin-top: 20px;
 
           &--list {
             text-align: center;
-            font-size: 12px;
+            font-size: 10px;
+            font-family: sans-serif;
             margin-bottom: 8px;
+            
           }
         }
       }

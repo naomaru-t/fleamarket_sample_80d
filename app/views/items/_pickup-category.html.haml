@@ -7,16 +7,25 @@
         新規投稿商品(商品一覧)
     .pickup__category--itemlists
       .pickup__category--itemlists--image
-        =link_to "#",class:"pickup__category--itemlists--list--itembtn" do
+        .pickup__category--itemlists--image--itembtn
+        =link_to "#",class:"pickup__category--itemlists--image--itembtn--link" do
           =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
           =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
           =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
-      %h3.pickup__category--itemlists--name
-        - @items.each do |item|
-          = item.name
-      %ul.pickup__category--itemlists--price
-        - @items.each do |item| 
-          = item.price
+          =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+          =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+      %h3.pickup__category--itemlists--detail
+        %ul.pickup__category--itemlists--detail--boxes
+          - @items.each do |item|
+            %li.pickup__category--itemlists--detail--boxes--box
+              = item.name
+              %br
+              = item.price
+              %br
+              .taxin
+                (税込み)
+
+
       -# 画像登録後、コメントアウトを外します
       -# .pickup__category--itemlists--image
       -#   - @item.each do |item| 
