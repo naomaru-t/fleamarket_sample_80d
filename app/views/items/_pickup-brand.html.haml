@@ -1,8 +1,31 @@
-.main-h
-  .main-h__pickup
-    .main-h__pickup__brand
-      .main-h__pickup__brand__text
-        .main-h__pickup__brand__text__large
-          ピックアップブランド
-        .main-h__pickup__brand__text__small
-          アーカイバ
+.pickup
+  .pickup__brand
+    %h2.pickup__brand--subtitle1
+      ピックアップブランド
+    .pickup__brand--subtitle2
+      =link_to "#", class:"pickup__category--subtitle2--link" do
+        アーカイバ
+    .pickup__brand--itemlists
+      .pickup__brand--itemlists--image
+        .pickup__brand--itemlists--image--itembtn
+          
+          
+      %h3.pickup__brand--itemlists--detail
+        %ul.pickup__brand--itemlists--detail--boxes
+          - @items.each do |item|
+            %li.pickup__brand--itemlists--detail--boxes--box
+              =link_to "#",class:"itembtn--link" do
+                =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+              .pickup__brand--itemlists--detail--boxes--box--name
+                = item.name
+                %br
+              .pickup__brand--itemlists--detail--boxes--box--price
+                = item.price
+                円
+              .star
+                ★
+              .starnumber
+                1
+              %br
+              .taxin
+                (税込み)
