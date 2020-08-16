@@ -3,10 +3,11 @@
   %p
     = item.price
     円
-    = item.condition.name
-    = item.postagepayer.name
-    = item.postagetype.name
-    = item.preparationdays.name
+    -# エラーが出るので後の実装までコメントアウトします
+    -# = item.condition.name
+    -# = item.postagepayer.name
+    -# = item.postagetype.name
+    -# = item.preparationdays.name
     = link_to '編集', edit_item_path(item)
 
   - item.images.each do |image|

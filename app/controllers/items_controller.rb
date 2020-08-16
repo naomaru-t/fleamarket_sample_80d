@@ -1,15 +1,17 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
 
-  def index 
-    @items = Item.includes(:images).order('created_at DESC')
+  def index
+    @items = Item.includes(:images).order('created_at DESC').limit(5)
+    # 後に実装予定
+    # @items = Item.includes(:images).order('created_at DESC').limit(5).where.not(condition: 1).where(condition: 0)
   end
 
   def new
 
     @item = Item.new
     @item.images.new #-商品出品時に画像も同時に保存されるように記述
-    @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
+    # @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
     @category_parent_array = Category.where(ancestry: nil)
   
     def get_category_children
@@ -24,7 +26,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.user_id = current_user.id　ログイン機能が実装してから
+    # @item.user_id = current_user.id ログイン機能が実装してから
     if @item.save
       item = Item.find(@item.id)
       redirect_to root_path

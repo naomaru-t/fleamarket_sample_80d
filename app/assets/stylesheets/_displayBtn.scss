@@ -1,0 +1,33 @@
+.displayBtn {
+  box-sizing: border-box;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &__btn {
+    box-sizing: border-box;
+    background-color: rgb(60, 202, 206);;
+    width: 120px;
+    color: white;
+    border-radius: 4%;
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    text-align: center;
+    text-decoration: none;
+
+    &--in-box {
+      padding: 15px 15px 10px 15px;
+
+      &--text {
+        font-size: 18px;
+      }
+
+      &--img {
+        padding-top: 5px;
+      }
+
+    }
+  }
+}

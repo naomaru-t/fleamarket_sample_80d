@@ -1,0 +1,39 @@
+.pickup
+  .pickup__category
+    %h2.pickup__category--subtitle1
+      ピックアップカテゴリー
+    .pickup__category--subtitle2
+      =link_to "#", class:"pickup__category--subtitle2--link" do
+        新規投稿商品(商品一覧)
+    .pickup__category--itemlists
+      .pickup__category--itemlists--image
+        .pickup__category--itemlists--image--itembtn
+          
+          
+      %h3.pickup__category--itemlists--detail
+        %ul.pickup__category--itemlists--detail--boxes
+          - @items.each do |item|
+            %li.pickup__category--itemlists--detail--boxes--box
+              =link_to "#",class:"itembtn--link" do
+                =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+              .pickup__category--itemlists--detail--boxes--box--name
+                = item.name
+                %br
+              .pickup__category--itemlists--detail--boxes--box--price
+                = item.price
+                円
+              .star
+                ★
+              .starnumber
+                1
+              %br
+              .taxin
+                (税込み)
+
+
+      -# 画像登録後、コメントアウトを外します
+      -# .pickup__category--itemlists--image
+      -#   - @item.each do |item| 
+      -#   = item.'images.image'
+
+
