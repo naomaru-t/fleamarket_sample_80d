@@ -49,11 +49,6 @@
           width: 30px;
           height: 25px;
         }
-        .saison{
-          width: 30px;
-          height: 25px;
-          margin-left: 5px;
-        }
         .master{
           width: 30px;
           height: 25px;     
@@ -70,11 +65,6 @@
           margin-left: 5px;
         }
         .diners{
-          width: 30px;
-          height: 25px;
-          margin-left: 5px;
-        }
-        .rakuten{
           width: 30px;
           height: 25px;
           margin-left: 5px;
@@ -172,6 +162,80 @@
           background-color: rgb(31, 230, 220);
           border: 1px solid red;
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.show{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(241, 241, 241);
+  padding-top: 20px;
+  &__frame{
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    &__title{
+      border-bottom: 1px solid rgb(204, 204, 204);
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px;
+    }
+    .credit_card__list{
+      padding: 15px;
+      font-weight: bold;
+      &__frame{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 40px;
+        .credit_card_info{
+          display: flex;
+          align-items: center;
+          border: 2px solid rgba(16, 223, 188, 0.753);
+          padding: 20px 40px;
+          border-radius: 20px;
+          &__brand{
+            &__img{
+              width: 70px;
+            }
+          }
+          &__numbers{
+            margin-left: 30px;
+            .expiration_date{
+              display: flex;
+              margin-top: 10px;
+              &__info{
+                margin-left: 15px;
+              }
+            }
+          }
+        }
+        .destroy__function{
+          min-width: 106px;
+          &__link{
+            &__btn{
+              padding: 10px 20px;
+              border: 1px solid red;
+              border-radius: 5px;
+              text-decoration: none;
+              color: red;
+            }
+          }
+        }
+      }
+      .payment-details{
+        margin-top: 40px;
+        display: flex;
+        justify-content: flex-end;
+        &__btn{
+          text-decoration: none;
+          font-weight: normal;
+          color: rgba(20, 230, 195, 0.753);
         }
       }
     }
