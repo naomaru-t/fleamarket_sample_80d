@@ -84,6 +84,11 @@ class CreditCardsController < ApplicationController
     end
   end
 
+  def buy
+  end
+
+  def pay
+  end
 
   private
   def move_to_root

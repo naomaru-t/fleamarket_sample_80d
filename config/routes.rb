@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :profiles,only: [:new, :create]
   resources :sendings,only: [:new, :create]
   resources :credit_cards, only: [:new, :create, :show, :destroy] do 
+    member do 
+      get 'buy'
+      post 'pay'
+    end 
   end
 
   resources :items do
