@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index 
     @items = Item.includes(:images).order('created_at DESC')
@@ -11,17 +11,16 @@ class ItemsController < ApplicationController
     @item.images.new #-商品出品時に画像も同時に保存されるように記述
     @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
       
-      @category_parent_array = Category.where(ancestry: nil)
-  
-    def get_category_children
+    @category_parent_array = Category.where(ancestry: nil) #-カテゴリ親要素呼び出し
+  end
+
+    def get_category_children #-カテゴリ子要素呼び出し
       @category_children = Category.find("#{params[:parent_id]}").children
     end
   
-    def get_category_grandchildren
+    def get_category_grandchildren #-カテゴリ孫要素呼び出し
       @category_grandchildren = Category.find("#{params[:child_id]}").children
     end 
-    
-  end
 
   def create
     @item = Item.new(item_params)
@@ -44,7 +43,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :introduction, :sellstatus_id, :prefecture_id, :price, :condition_id, :postagepayer_id, :postagetype_id, :preparationdays_id, :category, :size, images_attributes: [:src, :_destroy, :id], brand_attributes: [:id, :_destroy, :name])
+    params.require(:item).permit(:saler_id, :name, :introduction, :sellstatus_id, :prefecture_id, :price, :condition_id, :postagepayer_id, :postagetype_id, :preparationdays_id, :category_id, :size, images_attributes: [:src, :_destroy, :id], brand_attributes: [:id, :_destroy, :name])
   end
 
   def set_item

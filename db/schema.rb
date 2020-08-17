@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_08_13_053632) do
     t.integer "preparationdays_id", null: false
     t.integer "sellstatus_id", null: false
     t.integer "price", null: false
-    t.string "category", null: false
+    t.integer "category_id", null: false
     t.integer "brand_id"
     t.integer "buyer_id"
-    t.bigint "saler_id"
+    t.bigint "saler_id", null: false
     t.index ["saler_id"], name: "index_items_on_saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end

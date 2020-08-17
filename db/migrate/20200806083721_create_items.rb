@@ -12,10 +12,10 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :preparationdays_id,                null: false
       t.integer :sellstatus_id,                     null: false
       t.integer :price,                             null: false
-      t.string :category,                           null: false
+      t.integer :category_id,                       null: false
       t.integer :brand_id
       t.integer :buyer_id
-      t.references :saler, foreign_key: { to_table: :users }
+      t.references :saler, foreign_key: { to_table: :users }, null: false
       # user関連はログイン機能実装後調整します
     end
   end
