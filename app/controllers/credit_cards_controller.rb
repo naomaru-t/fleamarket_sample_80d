@@ -1,5 +1,6 @@
 class CreditCardsController < ApplicationController
   before_action :move_to_root
+  before_action :set_card , only: [:show, :destroy]
 
   require "payjp"
 
@@ -33,8 +34,7 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def show
-    @card = CreditCard.find_by(user_id: current_user.id)
+  def show    
     if @card.blank?
       redirect_to action: "new"
     else  
@@ -65,7 +65,6 @@ class CreditCardsController < ApplicationController
   end
 
   def destroy
-    @card = CreditCard.find_by(user_id: current_user.id)
     if @card.blank? 
       redirect_to action: "new"
     else  
@@ -94,5 +93,9 @@ class CreditCardsController < ApplicationController
   def move_to_root
     redirect_to root_path unless user_signed_in?
   end 
+
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
+  end
 
 end
