@@ -1,0 +1,244 @@
+// Place all the styles related to the Credit_cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card_add{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  .card_content{
+    width: 100%;
+    .title{
+      font-weight: bold;
+      font-size: 20px;
+      border-bottom: 1px solid gray;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    .form_content{
+      padding-top: 40px;
+      max-width: 370px;
+      margin: 0 auto;
+      .number-details{
+        display: flex;
+        .card-number{
+          font-weight: bold;
+          font-size: 17px;
+        }
+      }
+      .number-details span{
+        color: white;
+        font-size: 17px;
+        background-color: rgb(24, 207, 198);
+        margin-left: 15px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        padding: 2px 15px;
+      }
+      .number{
+        .input-number{
+          width: 100%;
+          padding: 5px;
+          font-size: 20px;
+        }
+      }
+      .image{
+        display: flex;
+        margin-top: 5px;
+        .visa{
+          width: 30px;
+          height: 25px;
+        }
+        .master{
+          width: 30px;
+          height: 25px;     
+          margin-left: 5px;    
+        }
+        .jcb{
+          width: 30px;
+          height: 25px;
+          margin-left: 5px;
+        }
+        .amex{
+          width: 30px;
+          height: 25px;
+          margin-left: 5px;
+        }
+        .diners{
+          width: 30px;
+          height: 25px;
+          margin-left: 5px;
+        }
+      }
+    }
+    .expirationdate{
+      margin-top: 25px;
+      &__details{
+        display: flex;
+        .date{
+          font-weight: bold;
+          font-size: 17px;
+        }
+      }
+      &__details span{
+        color: white;
+        font-size: 17px;
+        background-color: rgb(24, 207, 198);
+        margin-left: 15px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        padding: 2px 15px;
+      }
+      &__choice{
+        display: flex;
+        margin-top: 10px;
+        .month{
+          display: flex;
+          .card_default{
+            width: 100px;
+            height: 40px;
+          }
+          &__details{
+            margin-left: 10px;
+            line-height: 40px;
+          }
+        }
+        .year{
+          display: flex;
+          margin-left: 20px;
+          .card_default{
+            width: 100px;
+            height: 40px;
+          }
+          .year-details{
+            margin-left: 10px;
+            line-height: 40px;
+          }
+        }
+      }
+      .securitycode{
+        margin-top: 40px;
+        &__details{
+          display: flex;
+          &__title{
+            font-weight: bold;
+            font-size: 17px;
+          }
+        }
+        &__details span{
+          color: white;
+          font-size: 17px;
+          background-color: rgb(24, 207, 198);
+          margin-left: 15px;
+          margin-bottom: 5px;
+          border-radius: 4px;
+          padding: 2px 15px;
+        }
+        &__cardsecurity input{
+          width: 80%;
+          padding: 5px;
+          font-size: 15px;
+        }
+        .card_question{
+          text-align: right;
+          padding-right: 50px;
+          color: red;
+        }
+        .add{
+          margin-top: 60px;
+          text-align: center;
+        }
+        .add input{
+          width: 100%;
+          height: 60px;
+          padding: 10px;
+          background-color: rgb(24, 207, 198);
+          border: none;
+          color: white;
+          font-size: 17px;
+          border-radius: 8px;
+        }
+        .add input:hover{
+          background-color: rgb(31, 230, 220);
+          border: 1px solid red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.show{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(241, 241, 241);
+  padding-top: 20px;
+  &__frame{
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    &__title{
+      border-bottom: 1px solid rgb(204, 204, 204);
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px;
+    }
+    .credit_card__list{
+      padding: 15px;
+      font-weight: bold;
+      &__frame{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 40px;
+        .credit_card_info{
+          display: flex;
+          align-items: center;
+          border: 2px solid rgba(16, 223, 188, 0.753);
+          padding: 20px 40px;
+          border-radius: 20px;
+          &__brand{
+            &__img{
+              width: 70px;
+            }
+          }
+          &__numbers{
+            margin-left: 30px;
+            .expiration_date{
+              display: flex;
+              margin-top: 10px;
+              &__info{
+                margin-left: 15px;
+              }
+            }
+          }
+        }
+        .destroy__function{
+          min-width: 106px;
+          &__link{
+            &__btn{
+              padding: 10px 20px;
+              border: 1px solid red;
+              border-radius: 5px;
+              text-decoration: none;
+              color: red;
+            }
+          }
+        }
+      }
+      .payment-details{
+        margin-top: 40px;
+        display: flex;
+        justify-content: flex-end;
+        &__btn{
+          text-decoration: none;
+          font-weight: normal;
+          color: rgba(20, 230, 195, 0.753);
+        }
+      }
+    }
+  }
+}
+

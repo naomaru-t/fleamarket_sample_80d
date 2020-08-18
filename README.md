@@ -19,21 +19,26 @@ Things you may want to cover:
 |name|string|null:false|
 |introduction|text|null:false|
 |user_id|references|null:false,foreign_key:true|
-|category_id|references|null:false,foreign_key:true|
-|brand_id|references|foreign_key:true|
-|condition|string|null:false|
-|postage_payer|string|null:false|
-|prefecture_id|references|null:false,foreign_key:true|(active_hash)
-|preparation_days|string|null:false|
+|category_id|integer|null:false|
+|brand_id|----|-----|
+|condition_id|integer|null:false|(active_hash)
+|postagepayer_id|integer|null:false|(active_hash)
+|postagetype_id|integer|null:false|(active_hash)
+|prefecture_id|integer|null:false|(active_hash)
+|preparationdays_id|integer|null:false|(active_hash)
 |price|integer|null:false|
-|sell_status|integer|null:false|
+|sellstatus_id|integer|null:false|(active_hash)
+|buyer_id|integer|-----|
+|saler_id|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- has_many :item_images
+- has_many :images
 - belongs_to :prefecture
+- belongs_to :saler,class_name:"User"
+- belongs_to :buyer,class_name:"User"
 
 ## prefecture active hash
 
@@ -50,11 +55,11 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## item_imageテーブル
+## imageテーブル
 |column|Type|Options|
 |------|----|-------|
-|image|string|null:false|
-|item_id|references|null:false,foreign_key:true|
+|src|string|null:false|
+|item|references|foreign_key:true|
 
 ### Association
 - belongs_to :item
@@ -88,9 +93,7 @@ Things you may want to cover:
 |family_name|string|null:false|
 |first_name_kana|string|null:false|
 |family_name_kana|string|null:false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_day|date|null:false|
+|birth_date|date|null:false|
 |use_id|references|null:false, foreign_key:true|
 
 ### Association

@@ -1,0 +1,68 @@
+.erabareru {
+  background-color: white;
+  padding: 60px 20px;
+
+  &__subtitle {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  &__line {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+
+    &--solid {
+      width: 100px;
+      border-top: solid 4px #3CCACE;
+    }
+  }
+
+  &__lists {
+    text-align: center;
+    display : flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
+
+    &--pict {
+      width: 30%;
+      margin: 16px 51px 0 0;
+      position: relative;
+
+      &--num {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        background-color: #3CCACE;
+        padding: 8px 20px;
+      }
+
+      &--image {
+        width: 306px;
+      }
+
+      &--text {
+
+        &--green {
+          color: #3CCACE;
+        }
+      }
+
+      &--desc {
+        text-align: left;
+        margin-top: 20px;
+      }
+      &--desc3 {
+        margin-top: 20px;
+      }
+
+    }
+  }
+}
