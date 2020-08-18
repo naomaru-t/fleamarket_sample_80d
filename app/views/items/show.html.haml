@@ -2,6 +2,8 @@
   %body
     .main
       .header
+      -# -if current_user = saler_id
+      -# = link_to '削除', item_path(item), method: :delete
       -# ここに商品一覧昨日で実装済みのものを実装します。
       .topContent
         .itemBox 
