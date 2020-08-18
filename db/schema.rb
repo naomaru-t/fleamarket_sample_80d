@@ -48,11 +48,18 @@ ActiveRecord::Schema.define(version: 2020_08_13_053632) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.text "introduction", null: false
-    t.bigint "user_id", null: false
-    t.string "condition", null: false
-    t.string "postage_payer", null: false
-    t.string "preparation_days", null: false
+    t.bigint "user_id"
+    t.integer "condition_id", null: false
+    t.integer "postagepayer_id", null: false
+    t.integer "postagetype_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "preparationdays_id", null: false
+    t.integer "sellstatus_id", null: false
     t.integer "price", null: false
+    t.string "category", null: false
+    t.integer "brand_id"
+    t.integer "buyer_id"
+    t.integer "saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -98,7 +105,6 @@ ActiveRecord::Schema.define(version: 2020_08_13_053632) do
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "sendings", "users"
 end

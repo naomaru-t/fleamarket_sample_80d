@@ -1,42 +1,58 @@
-%h2 sending
--# = form_with model: @sending, local: true do |f|
-= form_for @sending do |f|
-  = render 'devise/shared/error_messages', resource: @sending
-  .field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name, autofocus: true
-  .field
-    = f.label :family_name
-    %br/
-    = f.text_field :family_name, autofocus: true
-  .field
-    = f.label :first_name_kana
-    %br/
-    = f.text_field :first_name_kana, autofocus: true
-  .field
-    = f.label :family_name_kana
-    %br/
-    = f.text_field :family_name_kana, autofocus: true
-  .field
-    = f.label :post_code
-    %br/
-    = f.text_field :post_code, autofocus: true
-  //.field
-  //  = f.label :prefecture
-  //  %br/
-  //  = f.text_field :prefecture, autofocus: true
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city, autofocus: true
-  .field
-    = f.label :house_number
-    %br/
-    = f.text_field :house_number, autofocus: true
-  .field
-    = f.label :building_name
-    %br/
-    = f.text_field :building_name
-  .actions
-    = f.submit "登録"
+.registar
+  %h2 送付先住所
+  -# = form_with model: @sending, local: true do |f|
+  = form_for @sending do |f|
+    = render 'devise/shared/error_messages', resource: @sending
+    .field
+      .display
+        .label 名前 （漢字・かな入力）
+        .block 必須
+      %br/
+      = f.text_field :first_name, autofocus: true
+    .field
+      .display
+        .label 苗字 （漢字入力）
+        .block 必須
+      %br/
+      = f.text_field :family_name, autofocus: true
+    .field
+      .display
+        .label 名前かな
+        .block 必須
+      %br/
+      = f.text_field :first_name_kana, autofocus: true
+    .field
+      .display
+        .label 苗字かな
+        .block 必須
+      %br/
+      = f.text_field :family_name_kana, autofocus: true
+    .field
+      .display
+        .label 郵便番号
+        .block 必須
+      %br/
+      = f.text_field :post_code, autofocus: true
+    -# .field
+    -#   = f.label :prefecture
+    -#   %br/
+    -#   = f.text_field :prefecture, autofocus: true
+    .field
+      .display
+        .label 市区町村
+        .block 必須
+      %br/
+      = f.text_field :city, autofocus: true
+    .field
+      .display
+        .label 番地
+        .block 必須
+      %br/
+      = f.text_field :house_number, autofocus: true
+    .field
+      .display
+        .label 建物名
+      %br/
+      = f.text_field :building_name
+    .actions
+      = f.submit "登録"
