@@ -1,5 +1,7 @@
 FactoryBot.define do
-  factory :profile do
-    
+  factory :category do
+    id                {"1"}
+    name              {"???"}
   end
 end
+
