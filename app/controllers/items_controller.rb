@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
+
   private
   def item_params
     params.require(:item).permit(:saler_id, :name, :introduction, :sellstatus_id, :prefecture_id, :price, :condition_id, :postagepayer_id, :postagetype_id, :preparationdays_id, :category_id, :size, images_attributes: [:src, :_destroy, :id], brand_attributes: [:id, :_destroy, :name])
