@@ -5,51 +5,58 @@
       -# ここに商品一覧昨日で実装済みのものを実装します。
       .topContent
         .itemBox 
-          .itemBox__title eee
+          .itemBox__title
+          -# %h2= @item.name 
           .itemBox__image 
             %ul.itemBox__image--main
               -# saler_id.image（実装次第変更をかける）
               %li ここにメインの画像がきます
               %li 
                 %ul.itemBox__image--main--sub
+                  -# - @images.each do |img|
                   %li サブの画像１
-                  -# saler.imege_id（実装次第変更をかける）
-                  %li サブの画像２
+                  
           .itemBox__price 
-            %span ¥1000
+            %span 
+              -# = @item.price.to_s(:delimited)
+              円
             .itemBox__price--detail
-              %span (税込) 送料込み
+              %span 
+                (税込)
+              %span
+                送料込み
           .itemBox__detail この商品は世界に１枚しかない代物です。
           %table
             %tr
-              %td 出品者
-              %td.table__detail 山田太郎
+              %th 出品者
+              %td.table__detail
+                -# =@user.nickname
             %tr
-              %td カテゴリー
+              %th カテゴリー
               -# （実装次第変更をかける）
               %td トップス
             %tr
-              %td.table__title ブランド
+              %th.table__title ブランド
               -# （実装次第変更をかける）
               %td シャネル
             %tr
-              %td.table__title サイズ
+              %th.table__title サイズ
               -# （実装次第変更をかける）
               %td Mサイズ
             %tr
-              %td.table__title 商品の状態
+              %th.table__title 商品の状態
               -# （実装次第変更をかける）
               %td 良い
             %tr
-              %td.table__title 配送料の負担
+              %th.table__title 配送料の負担
               -# （実装次第変更をかける）
               %td 出品者負担
             %tr
-              %td.table__title 発信元の地域
+              %th.table__title 発信元の地域
               -# （実装次第変更をかける）
               %td 東京都
             %tr
-              %td.table__title 発送日の目安
+              %th.table__title 発送日の目安
               -# （実装次第変更をかける）
               %td 2日
         .commentBox

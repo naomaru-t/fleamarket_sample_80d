@@ -214,17 +214,14 @@ body {
     }
     td {
       border: solid 1px black;
+      padding-left: 10px;
     } 
-    table td:nth-child(1) {
-      text-align: center;
+    th {
       width: 120px;
-      background-color: #eee;
-      font-weight: bold;
-    }
-    table td:nth-child(2) {
       padding-left: 10px;
       background-color: white;
       font-weight: bold;
+      border: solid 1px black;
     }
 }
 
