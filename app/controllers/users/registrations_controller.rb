@@ -29,10 +29,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @profile.errors.full_messages
       render :new_profile and return
     end
-    # @user.build_profile(@profile.attributes)
-    # @user.save
-    # session["devise.regist_data"]["user"].clear
-    # sign_in(:user, @user)
     @user.build_profile(@profile.attributes)
     session["profile"] = @profile.attributes
     @sending = @user.build_sending

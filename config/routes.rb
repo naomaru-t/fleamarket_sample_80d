@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # resources :profiles, only: [:new, :create]
-  # resources :sendings,only: [:new, :create]
   resources :credit_cards, only: [:new, :create] do 
   end
   resources :items, only: :index do
