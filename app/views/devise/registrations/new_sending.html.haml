@@ -1,5 +1,7 @@
 %h2 sending
-= form_with model: @sending, local: true do |f|
+-# = form_with model: @sending, local: true do |f|
+= form_for @sending do |f|
+  = render 'devise/shared/error_messages', resource: @sending
   .field
     = f.label :first_name
     %br/
