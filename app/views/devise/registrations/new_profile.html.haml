@@ -1,5 +1,6 @@
 %h2 profile
-= form_with model: @profile, local: true do |f|
+= form_for @profile do |f|
+  = render 'devise/shared/error_messages', resource: @profile
   .field
     = f.label :first_name
     %br/

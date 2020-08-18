@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
-  def index 
-    @items = Item.includes(:images).order('created_at DESC')
+  def index
+    @items = Item.includes(:images).order('created_at DESC').limit(5)
+    # 後に実装予定
+    # @items = Item.includes(:images).order('created_at DESC').limit(5).where.not(condition: 1).where(condition: 0)
   end
 
   def new
@@ -15,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
     def get_category_children #-カテゴリ子要素呼び出し
+
       @category_children = Category.find("#{params[:parent_id]}").children
     end
   
@@ -26,6 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save!
+
       item = Item.find(@item.id)
       redirect_to root_path
     else
