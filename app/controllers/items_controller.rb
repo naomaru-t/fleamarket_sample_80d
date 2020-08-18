@@ -54,5 +54,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def show_all_instance
+    @user = User.find(@item.user_id)
+    @images = Image.where(item_id: params[:id])
+    @images_first = Image.where(item_id: params[:id]).first
+    @category_id = @item.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
+  end
 end
 
