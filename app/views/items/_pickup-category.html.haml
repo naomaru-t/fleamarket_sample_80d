@@ -15,7 +15,8 @@
           - @items.each do |item|
             %li.pickup__category--itemlists--detail--boxes--box
               =link_to "#",class:"itembtn--link" do
-                =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+                =image_tag item.images[0].src.url, alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
+                -# =image_tag 'material/pict/pict-reason-01.jpg', alt: '画像なし', height: '200', width: '150', class:'itembtn__img'
               .pickup__category--itemlists--detail--boxes--box--name
                 = item.name
                 %br
