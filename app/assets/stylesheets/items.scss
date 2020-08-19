@@ -146,7 +146,7 @@ body {
   height: 100%;
   background-color: #f8f8f8;
   .header {
-    height: 200px;
+    height: 100px;
     background-color: skyblue;
   }
   .topContent {
@@ -163,9 +163,20 @@ body {
       }
       &__image {
         &--main {
-          &--sub {
+          .main__photo {
+            width: 500px;
+            height: 200px;
+            margin-bottom: 15px;
+          }
+            &--sub {
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
+              &--list {
+                display:flex;
+                .sub__photo {
+                  margin-left: 15px;
+                }
+              }
           }
         }
       }

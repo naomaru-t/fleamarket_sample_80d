@@ -5,53 +5,57 @@
       -# ここに商品一覧昨日で実装済みのものを実装します。
       .topContent
         .itemBox 
-          .itemBox__title eee
+          .itemBox__title 
+            =@item.name
           .itemBox__image 
             %ul.itemBox__image--main
-              -# saler_id.image（実装次第変更をかける）
-              %li ここにメインの画像がきます
-              %li 
-                %ul.itemBox__image--main--sub
-                  %li サブの画像１
-                  -# saler.imege_id（実装次第変更をかける）
-                  %li サブの画像２
+              %li
+                = image_tag(@images_first.src.url, class: "main__photo", size: "100x100")
+                .itemBox__image--main--sub 
+                  %ul.itemBox__image--main--sub--list
+                    - @images.each do |img|
+                      %li
+                        = image_tag(img.src.url, class: "sub__photo", size: "75x75")
           .itemBox__price 
-            %span ¥1000
+            %span 
+              =@item.price
+              円
             .itemBox__price--detail
               %span (税込) 送料込み
           .itemBox__detail この商品は世界に１枚しかない代物です。
           %table
             %tr
               %td 出品者
-              %td.table__detail 山田太郎
+              %td.table__detail
             %tr
               %td カテゴリー
               -# （実装次第変更をかける）
               %td トップス
             %tr
               %td.table__title ブランド
-              -# （実装次第変更をかける）
-              %td シャネル
+              %td
+                =@item.brand.name
             %tr
               %td.table__title サイズ
               -# （実装次第変更をかける）
               %td Mサイズ
             %tr
               %td.table__title 商品の状態
-              -# （実装次第変更をかける）
-              %td 良い
+              %td 
+                =@item.condition.name
             %tr
               %td.table__title 配送料の負担
-              -# （実装次第変更をかける）
-              %td 出品者負担
+              %td
+                =@item.postagepayer.name
             %tr
               %td.table__title 発信元の地域
-              -# （実装次第変更をかける）
-              %td 東京都
+              %td 
+                =@item.prefecture.name
             %tr
               %td.table__title 発送日の目安
               -# （実装次第変更をかける）
-              %td 2日
+              %td 
+                =@item.preparationdays.name
         .commentBox
           =form_with() do |form|
             = form.text_area :text, cols: "40", rows: "4", class: "commentBox__textbox"
