@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :sendings,only: [:new, :create]
   resources :credit_cards, only: [:new, :create] do 
   end
+  # カテゴリー機能実装後、消去予定
   resources :items, only: :index do
     resources :images, only: [:index, :create]
   end
