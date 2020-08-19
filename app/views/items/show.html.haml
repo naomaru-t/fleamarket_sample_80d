@@ -44,7 +44,6 @@
                 =@item.brand.name
             %tr
               %td.table__title サイズ
-              -# （実装次第変更をかける）
               %td Mサイズ
             %tr
               %td.table__title 商品の状態
@@ -69,10 +68,8 @@
               = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
               = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
             - else 
+              -# リンク先は購入実装画面が完了してから足す予定です
               = link_to "購入画面に進む" 
-            -# buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
-          -# - else       
-        
         
       
         .commentBox
