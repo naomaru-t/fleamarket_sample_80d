@@ -33,10 +33,12 @@
         .block 必須
       %br/
       = f.text_field :post_code, autofocus: true
-    -# .field
-    -#   = f.label :prefecture
-    -#   %br/
-    -#   = f.text_field :prefecture, autofocus: true
+    .field
+      .display
+        .label 都道府県
+        .block 必須
+      %br/
+      = f.collection_select :prefecture_id, Prefecture.where.not(name: '未定'), :id, :name,{include_blank: "選択してください"}, class: "pselect"
     .field
       .display
         .label 市区町村

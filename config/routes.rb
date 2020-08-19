@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post 'pay'
     end 
   end
+  # カテゴリー機能実装後、消去予定
   resources :items, only: :index do
     resources :images, only: [:index, :create]
   end
