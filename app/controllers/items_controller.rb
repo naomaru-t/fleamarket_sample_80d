@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   def index
-    @items = Item.includes(:images).order('items.created_at DESC').limit(5)
+    @items = Item.includes(:images).order('items.created_at DESC').limit(5).where.not(sellstatus_id: 0).where(sellstatus_id: 1)
     @parent = Category.where(ancestry: nil)
     # @parents = Category.all.order("id ASK").limit(13)
     # 後に実装予定
