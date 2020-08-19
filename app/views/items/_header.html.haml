@@ -1,6 +1,5 @@
 .header
   .header__Inner
-    検索欄をいれるヘッダー
     .header__Inner--mainHeader
       %h1.header__Inner--mainHeader--icon
         =link_to root_path, class: "header__Inner--mainHeader--icon--link" do
@@ -17,35 +16,39 @@
         %li.header__Inner--nav--listLeft--categ
           = link_to "#", class: "categoryBtn", id: "left-category" do
             カテゴリー
-          -# .visibleTree
-          -#   %ul.firstMenu__parents
-          -#     - @parent.each do |parent|
-          -#       %li.firstMenu__parents--parent 
-          -#         = link_to "#{parent.name}", "#", class: "item-link"
+          .visibleTree
+            -# %ul.firstMenu__parents
+            -#   - @parent.each do |parent|
+            -#     %li.firstMenu__parents--parent 
+            -#       = link_to "#{parent.name}", "#", class: "item-link"
 
-          -#         %ul.secondMenu__children
-          -#           - parent.children.each do |child|
-          -#             %li.secondMenu__children--child
-          -#               = link_to "#{child.name}", "#", class: "item-link"
+                  -# %ul.secondMenu__children
+                  -#   - parent.children.each do |child|
+                  -#     %li.secondMenu__children--child
+                  -#       = link_to "#{child.name}", "#", class: "item-link"
 
-          -#               %ul.thirdMenu__grandchildren
-          -#                 - child.children.each do |grandchildren|
-          -#                   %li.thirdMenu__grandchildren--grandchildren
-          -#                     = link_to "#{grandchildren.name}", "#", class: "item-link"
+                  -#       %ul.thirdMenu__grandchildren
+                  -#         - child.children.each do |grandchildren|
+                  -#           %li.thirdMenu__grandchildren--grandchildren
+                  -#             = link_to "#{grandchildren.name}", "#", class: "item-link"
 
               
-        -# %li.header__Inner--nav--listLeft--brand
-        -#   = link_to "#" do
-        -#     ブランド
+        %li.header__Inner--nav--listLeft--brand
+          = link_to "#", class: "categoryBtn", id: "left-category" do
+            ブランド
 
       %ul.header__Inner--nav--listRight
-        %li.header__Inner--nav--listLeft--roguin
+        %li.header__Inner--nav--listRight--roguin
           - if user_signed_in?
-            = link_to destroy_user_session_path, method: :delete do
+            = link_to destroy_user_session_path, class:"rogBtn", method: :delete do
               ログアウト
           - else
-            = link_to new_user_session_path, method: :get do
+            = link_to new_user_session_path, class:"rogBtn", method: :get do
               ログイン
-        %li.header__Inner--nav--listLeft--sinki
-          = link_to new_user_registration_path, method: :get do
-            新規会員登録
+        %li.header__Inner--nav--listRight--sinki
+          - if user_signed_in?
+            = link_to "#", class:"rogBtn", method: :get do
+              マイページ
+          - else
+            = link_to new_user_registration_path, class:"rogBtn", method: :get do
+              新規会員登録
