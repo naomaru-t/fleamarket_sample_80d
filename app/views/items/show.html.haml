@@ -1,8 +1,7 @@
 %html
   %body
+    .header
     .main
-      .header
-      -# ここに商品一覧昨日で実装済みのものを実装します。
       .topContent
         .itemBox 
           .itemBox__title 
@@ -27,10 +26,18 @@
             %tr
               %td 出品者
               %td.table__detail
+                =@user.nickname
             %tr
               %td カテゴリー
-              -# （実装次第変更をかける）
-              %td トップス
+              - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                %td
+                  = link_to "#{@category_child.name}","#"
+                  %br= link_to "#{@category_grandchild.name}","#" 
+              -else
+                %td
+                  %br= link_to "#{@category_child.name}","#"
+                  = link_to "#{@category_parent.name}","#"
+                  = link_to "#{@category_grandchild.name}","#"
             %tr
               %td.table__title ブランド
               %td
@@ -53,9 +60,21 @@
                 =@item.prefecture.name
             %tr
               %td.table__title 発送日の目安
-              -# （実装次第変更をかける）
               %td 
                 =@item.preparationdays.name
+             
+          .mainShow__box__content__top__editDeleteBuy
+          - if user_signed_in?
+            - if current_user.id == @item.saler_id
+              = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
+              = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+            - else 
+              = link_to "購入画面に進む" 
+            -# buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
+          -# - else       
+        
+        
+      
         .commentBox
           =form_with() do |form|
             = form.text_area :text, cols: "40", rows: "4", class: "commentBox__textbox"
@@ -66,24 +85,5 @@
         %ul.links
           %li= link_to '前のページ'
           %li= link_to '後ろのページ'
-
-        
-          -# 出品者用機能
-          -# - if user_signed_in? && current_user.id == item.saler_id
-          -# = link_to '編集', edit_item_path(items.id), method: :get
-          -# = link_to '削除', item_path(items.id), method: :delete
-          -#  end
-
-
-          -# 出品者以外用機能
-          -# - if user_signed_in? && current_user.id != item.saler_id
-          -# = link_to '購入画面へ', _path(items.id), method: :
-          -#  end
-
-
-        -# 商品閲覧
-        -#   if current_user && current_user = nil
-
-
-        -# %i.fas.fa-comment
-
+      
+  =render"footer"
