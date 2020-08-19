@@ -1,7 +1,6 @@
 .sellmain
   .sellheader
-    -# =render 'header'
-    -#後ほど実装
+    =render 'header'
   .sell
     = form_with model: @item, local:true do |f|
       .sell__image
@@ -33,7 +32,7 @@
           %span.hissu 必須
         = f.text_field :name, placeholder: "40文字まで", class: "form__input" ,id:  "item_name", maxlength: 40, :required => ""
         .form_label
-          %label 商品名
+          %label 商品詳細
           %span.hissu 必須
         = f.text_area :introduction, placeholder: "商品の説明（必須1,000文字以内）", class: "form__textarea" , maxlength: 1000, :required => ""
 
@@ -101,5 +100,4 @@
       = f.hidden_field :saler_id, value: current_user.id #商品に出品者ID(saler_id)を付与
 
   .sellfooter
-    -# = render 'footer'
-    -#後ほど実装
+    = render 'footer'
