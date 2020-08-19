@@ -50,11 +50,11 @@
                 .lavel__Required
                 = f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},{class:"select_field", id: "category_id", :required => ""}
 
-        = f.fields_for :brand do |brand|
-          .form_label
-            %label ブランド
-            %span.ninni 任意
-          = brand.text_field :name, placeholder: "例）シャネル", class: "form__input"
+        -# = f.fields_for :brand do |brand|
+        -#   .form_label
+        -#     %label ブランド
+        -#     %span.ninni 任意
+        -#   = brand.text_field :name, placeholder: "例）シャネル", class: "form__input"
           
         .form_label
           %label 商品の状態
