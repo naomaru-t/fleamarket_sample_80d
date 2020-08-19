@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_140625) do
+ActiveRecord::Schema.define(version: 2020_08_13_053632) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_140625) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.text "introduction", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.integer "condition_id", null: false
     t.integer "postagepayer_id", null: false
     t.integer "postagetype_id", null: false
@@ -56,10 +56,11 @@ ActiveRecord::Schema.define(version: 2020_08_18_140625) do
     t.integer "preparationdays_id", null: false
     t.integer "sellstatus_id", null: false
     t.integer "price", null: false
-    t.string "category_id", null: false
+    t.integer "category_id", null: false
     t.integer "brand_id"
     t.integer "buyer_id"
-    t.integer "saler_id"
+    t.bigint "saler_id", null: false
+    t.index ["saler_id"], name: "index_items_on_saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -105,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_140625) do
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "saler_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sendings", "users"
 end
