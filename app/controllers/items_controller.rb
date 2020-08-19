@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.includes(:images).order('items.created_at DESC').limit(5)
     @parent = Category.where(ancestry: nil)
@@ -47,9 +47,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   private
   def item_params
     params.require(:item).permit(:saler_id, :name, :introduction, :sellstatus_id, :prefecture_id, :price, :condition_id, :postagepayer_id, :postagetype_id, :preparationdays_id, :category_id, :size, images_attributes: [:src, :_destroy, :id], brand_attributes: [:id, :_destroy, :name])
@@ -58,8 +55,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
 
   def show_all_instance
     @user = User.find(@item.user_id)

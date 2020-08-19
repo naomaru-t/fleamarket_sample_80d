@@ -1,77 +1,57 @@
 %html
   %body
-    .header
     .main
+      .header
+      -# ここに商品一覧昨日で実装済みのものを実装します。
       .topContent
         .itemBox 
-          .itemBox__title 
-            =@item.name
+          .itemBox__title eee
           .itemBox__image 
             %ul.itemBox__image--main
-              %li
-                = image_tag(@images_first.src.url, class: "main__photo", size: "100x100")
-                .itemBox__image--main--sub 
-                  %ul.itemBox__image--main--sub--list
-                    - @images.each do |img|
-                      %li
-                        = image_tag(img.src.url, class: "sub__photo", size: "75x75")
+              -# saler_id.image（実装次第変更をかける）
+              %li ここにメインの画像がきます
+              %li 
+                %ul.itemBox__image--main--sub
+                  %li サブの画像１
+                  -# saler.imege_id（実装次第変更をかける）
+                  %li サブの画像２
           .itemBox__price 
-            %span 
-              =@item.price
-              円
+            %span ¥1000
             .itemBox__price--detail
               %span (税込) 送料込み
           .itemBox__detail この商品は世界に１枚しかない代物です。
           %table
             %tr
               %td 出品者
-              %td.table__detail
-                =@user.nickname
+              %td.table__detail 山田太郎
             %tr
               %td カテゴリー
-              - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
-                %td
-                  = link_to "#{@category_child.name}","#"
-                  %br= link_to "#{@category_grandchild.name}","#" 
-              -else
-                %td
-                  %br= link_to "#{@category_child.name}","#"
-                  = link_to "#{@category_parent.name}","#"
-                  = link_to "#{@category_grandchild.name}","#"
+              -# （実装次第変更をかける）
+              %td トップス
             %tr
               %td.table__title ブランド
-              %td
-                =@item.brand.name
+              -# （実装次第変更をかける）
+              %td シャネル
             %tr
               %td.table__title サイズ
+              -# （実装次第変更をかける）
               %td Mサイズ
             %tr
               %td.table__title 商品の状態
-              %td 
-                =@item.condition.name
+              -# （実装次第変更をかける）
+              %td 良い
             %tr
               %td.table__title 配送料の負担
-              %td
-                =@item.postagepayer.name
+              -# （実装次第変更をかける）
+              %td 出品者負担
             %tr
               %td.table__title 発信元の地域
-              %td 
-                =@item.prefecture.name
+              -# （実装次第変更をかける）
+              %td 東京都
             %tr
               %td.table__title 発送日の目安
-              %td 
-                =@item.preparationdays.name
-             
-          .mainShow__box__content__top__editDeleteBuy
-          - if user_signed_in?
-            - if current_user.id == @item.saler_id
-              = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
-              = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
-            - else 
-              -# リンク先は購入実装画面が完了してから足す予定です
-              = link_to "購入画面に進む" 
-        
-      
+              -# （実装次第変更をかける）
+              %td 2日
         .commentBox
           =form_with() do |form|
             = form.text_area :text, cols: "40", rows: "4", class: "commentBox__textbox"
@@ -82,5 +62,24 @@
         %ul.links
           %li= link_to '前のページ'
           %li= link_to '後ろのページ'
-      
-  =render"footer"
+
+        
+          -# 出品者用機能
+          -# - if user_signed_in? && current_user.id == item.saler_id
+          -# = link_to '編集', edit_item_path(items.id), method: :get
+          -# = link_to '削除', item_path(items.id), method: :delete
+          -#  end
+
+
+          -# 出品者以外用機能
+          -# - if user_signed_in? && current_user.id != item.saler_id
+          -# = link_to '購入画面へ', _path(items.id), method: :
+          -#  end
+
+
+        -# 商品閲覧
+        -#   if current_user && current_user = nil
+
+
+        -# %i.fas.fa-comment
+
