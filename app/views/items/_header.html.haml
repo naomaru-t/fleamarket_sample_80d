@@ -13,32 +13,25 @@
               = image_tag "material/icon/icon-search 1.png", alt: "検索", class: "searchIcon"
 
     .header__Inner--nav
-      <script src="index_header.js"></script>
       %ul.header__Inner--nav--listLeft
         %li.header__Inner--nav--listLeft--categ
           = link_to "#", class: "categoryBtn", id: "left-category" do
             カテゴリー
-          .visibleTree
-            %ul.firstMenu__parents
-              - @parent.each do |parent|
-                %li.firstMenu__parents--parent 
-                  = link_to "#{parent.name}", "#", class: "item-link"
+          -# .visibleTree
+          -#   %ul.firstMenu__parents
+          -#     - @parent.each do |parent|
+          -#       %li.firstMenu__parents--parent 
+          -#         = link_to "#{parent.name}", "#", class: "item-link"
 
-                  %ul.secondMenu__children
-                    - parent.children.each do |child|
-                      %li.secondMenu__children--child
-                        = link_to "#{child.name}", "#", class: "item-link"
+          -#         %ul.secondMenu__children
+          -#           - parent.children.each do |child|
+          -#             %li.secondMenu__children--child
+          -#               = link_to "#{child.name}", "#", class: "item-link"
 
-                        %ul.thirdMenu__grandchildren
-                          - child.children.each do |grandchildren|
-                            %li.thirdMenu__grandchildren--grandchildren
-                              = link_to "#{grandchildren.name}", "#", class: "item-link"
-
-
-
-
-
-
+          -#               %ul.thirdMenu__grandchildren
+          -#                 - child.children.each do |grandchildren|
+          -#                   %li.thirdMenu__grandchildren--grandchildren
+          -#                     = link_to "#{grandchildren.name}", "#", class: "item-link"
 
               
         -# %li.header__Inner--nav--listLeft--brand
