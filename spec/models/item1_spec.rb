@@ -67,13 +67,6 @@ describe Item do
       expect(item.errors[:saler_id]).to include("can't be blank")
     end
 
-    #     わからない
-    # it "imageがないと出品できない" do
-    #   item = FactoryBot.build(:item, image_id: nil)
-    #   item.valid?
-    #   expect(item.errors[:image_id]).to include("can't be blank")
-    # end
-
     it "nameが40字以上だと出品できない" do #↓42文字
       item = FactoryBot.build(:item, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       item.valid?
