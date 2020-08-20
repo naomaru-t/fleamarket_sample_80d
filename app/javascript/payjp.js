@@ -35,3 +35,8 @@ window.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+
+$(window).on("load resize", function(){
+  let width = $(".buy-item__image").width();
+  $(".buy-item__image").css({"height": width});
+});
