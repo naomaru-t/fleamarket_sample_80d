@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   validates_associated :images
   validates :images, presence: true
 
-  validates :name, :introduction, :prefecture, :condition, :postagepayer, :postagetype, :preparationdays, :price, :sellstatus,:category, presence: true
+  validates :name, :introduction, :prefecture_id, :condition_id, :postagepayer_id, :postagetype_id, :preparationdays_id, :price, :sellstatus_id,:category_id,:saler_id, presence: true
   validates :name, length: {maximum: 40 }
   validates :introduction, length: {maximum: 1000 }
   validates :price, numericality:{only_iteger: true, greater_than: 300,less_than:9999999}

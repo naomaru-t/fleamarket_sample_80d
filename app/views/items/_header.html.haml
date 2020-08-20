@@ -1,2 +1,54 @@
 .header
-  %h2 検索欄をいれるヘッダー
+  .header__Inner
+    .header__Inner--mainHeader
+      %h1.header__Inner--mainHeader--icon
+        =link_to root_path, class: "header__Inner--mainHeader--icon--link" do
+          =image_tag 'material/logo/logo.png', class:"headerImage"
+      .header__Inner--mainHeader--search
+        = form_with url: "#", method: :get, lacal: true do |f|
+          .header__Inner--mainHeader--search--searchBox
+            = f.text_field :search, class: "header__Inner--mainHeader--search--searchBox--text", placeholder: "キーワードから探す"
+            = f.button class: "submitBtn" do
+              = image_tag "material/icon/icon-search 1.png", alt: "検索", class: "searchIcon"
+
+    .header__Inner--nav
+      %ul.header__Inner--nav--listLeft
+        %li.header__Inner--nav--listLeft--categ
+          = link_to "#", class: "categoryBtn", id: "left-category" do
+            カテゴリー
+          .visibleTree
+            -# %ul.firstMenu__parents
+            -#   - @parent.each do |parent|
+            -#     %li.firstMenu__parents--parent 
+            -#       = link_to "#{parent.name}", "#", class: "item-link"
+
+                  -# %ul.secondMenu__children
+                  -#   - parent.children.each do |child|
+                  -#     %li.secondMenu__children--child
+                  -#       = link_to "#{child.name}", "#", class: "item-link"
+
+                  -#       %ul.thirdMenu__grandchildren
+                  -#         - child.children.each do |grandchildren|
+                  -#           %li.thirdMenu__grandchildren--grandchildren
+                  -#             = link_to "#{grandchildren.name}", "#", class: "item-link"
+
+              
+        %li.header__Inner--nav--listLeft--brand
+          = link_to "#", class: "categoryBtn", id: "left-category" do
+            ブランド
+
+      %ul.header__Inner--nav--listRight
+        %li.header__Inner--nav--listRight--roguin
+          - if user_signed_in?
+            = link_to destroy_user_session_path, class:"rogBtn", method: :delete do
+              ログアウト
+          - else
+            = link_to new_user_session_path, class:"rogBtn", method: :get do
+              ログイン
+        %li.header__Inner--nav--listRight--sinki
+          - if user_signed_in?
+            = link_to "#", class:"rogBtn", method: :get do
+              マイページ
+          - else
+            = link_to new_user_registration_path, class:"rogBtn", method: :get do
+              新規会員登録

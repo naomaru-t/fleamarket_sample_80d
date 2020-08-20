@@ -10,6 +10,7 @@ require("channels")
 require('../item')
 require("jquery")
 require('../payjp')
+require('../category')
 
 
 

@@ -1,27 +1,36 @@
-%h2 Sign up
-= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-  = devise_error_messages!
-  .field
-    = f.label :nickname
-    %em
-      (15 characters minimum)
-    %br/
-    = f.text_field :nickname, autofocus: true, maxlength: "15"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
+.registar
+  %h2 ユーザー新規登録
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .field
+      .display
+        .label ニックネーム
+        .block 必須
       %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+        (15文字まで)
+      %br/
+      = f.text_field :nickname, autofocus: true, maxlength: "15"
+    .field
+      .display
+        .label メールアドレス
+        .block 必須
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      .display
+        .label パスワード
+        .block 必須
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} 字以上)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      .display
+        .label パスワード確認
+        .block 必須
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions
+      = f.submit "プロフィール入力"
+    = render "devise/shared/links"

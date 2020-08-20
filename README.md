@@ -19,7 +19,7 @@ Things you may want to cover:
 |name|string|null:false|
 |introduction|text|null:false|
 |user_id|references|null:false,foreign_key:true|
-|category_id|references|null:false,foreign_key:true|
+|category_id|integer|null:false|
 |brand_id|----|-----|
 |condition_id|integer|null:false|(active_hash)
 |postagepayer_id|integer|null:false|(active_hash)
@@ -29,7 +29,7 @@ Things you may want to cover:
 |price|integer|null:false|
 |sellstatus_id|integer|null:false|(active_hash)
 |buyer_id|integer|-----|
-|saler_id|integer|-----|
+|saler_id|references|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -93,9 +93,7 @@ Things you may want to cover:
 |family_name|string|null:false|
 |first_name_kana|string|null:false|
 |family_name_kana|string|null:false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_day|date|null:false|
+|birth_date|date|null:false|
 |use_id|references|null:false, foreign_key:true|
 
 ### Association
