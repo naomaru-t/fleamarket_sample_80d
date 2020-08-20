@@ -49,35 +49,35 @@
           position: relative;
 
           .visibleTree {
-            // display: none;
+            display: none;
             .firstMenu__parents {
               position: absolute;
               top: 30px;
               left: 0px;
-              // &--parent {
-              //   padding-bottom: 900px;
-
-              //   .secondMenu__children {
-              //     position: absolute;
-              //     left: 100px;
-              //     width: 200px;
+              display: block;
+              &--parent {
+                padding-bottom: 900px;
+                
+                .secondMenu__children {
+                  position: absolute;
+                  left: 100px;
+                  width: 200px;
                   
-              //     &--child {
-              //       padding-bottom: 100px;
+                  &--child {
+                    padding-bottom: 100px;
 
-              //       .thirdMenu__grandchildren {
-              //         position: absolute;
-              //         left: 270px;
-              //         width: 800px;
+                    .thirdMenu__grandchildren {
+                      position: absolute;
+                      left: 270px;
+                      width: 800px;
                       
-              //         &--grandchildren {
-              //           display: inline;
-
-              //         }
-              //       }
-              //     }
-              //   }
-              // }
+                      &--grandchildren {
+                        display: inline;
+                      }
+                    }
+                  }
+                }
+              }
             }
           
           
@@ -150,46 +150,3 @@
 
 
 
-// .visibleTree{
-//   opacity: 0;
-//   visibility: hidden;
-//   position: absolute;
-//   display: flex;
-//   top: 100%;
-//   z-index: 2;
-//   background-color: red;
-//     .firstMenu__parents{
-//       width: 240px;
-//         &__parent{
-//         &:hover > .secondMenu__children{
-//         opacity: 1;
-//         visibility: visible;
-//       }
-//         }
-//       .secondMenu__children{
-//         position: absolute;
-//         top: 0px;
-//         left: 100%;
-//         opacity: 0;
-//         visibility: hidden;
-//         background-color: blue;
-//         &__child{
-//         &:hover > .thirdMenu__grandchildren{
-//           opacity: 1;
-//           visibility: visible;
-//         }
-//       }
-//           .thirdMenu__grandchildren{
-//             background-color: yellow;
-//             position: absolute;
-//             left: 100%;
-//             top: 0px;
-//             opacity: 0;
-//             visibility: hidden;
-//             &__grandchild{
-//               background-color: brown;
-//             }
-//         }
-//       }
-//     }
-//   }
