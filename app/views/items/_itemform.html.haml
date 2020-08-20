@@ -1,6 +1,5 @@
 .sellmain
-  .sellheader
-    =render 'header'
+  =render 'header'
   .sell
     = form_with model: @item, local:true do |f|
       .sell__image
@@ -99,5 +98,4 @@
       = f.hidden_field :sellstatus_id, value: 1 #sellstatusの初期値として1なら出品中、2なら売却済み
       = f.hidden_field :saler_id, value: current_user.id #商品に出品者ID(saler_id)を付与
 
-  .sellfooter
-    = render 'footer'
+  = render 'footer'
