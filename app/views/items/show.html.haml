@@ -67,7 +67,7 @@
           - if user_signed_in?
             - if current_user.id == @item.saler_id
               = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
-              = link_to "商品の削除", item_path(@item.id), method: :delete, data: { confirm: "【確認】マンガを削除してもよろしいですか？" }, class: "destory"
+              = link_to "商品の削除", item_path(@item.id), method: :delete, data: { confirm: "【確認】商品を削除してもよろしいですか？" }, class: "destory"
             - else 
               -# リンク先は購入実装画面が完了してから足す予定です
               = link_to "購入画面に進む" 
