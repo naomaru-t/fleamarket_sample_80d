@@ -1,0 +1,68 @@
+=render partial:"items/header"
+.user
+  .user_side
+    .user_side_menu
+      = link_to root_path do
+        トップページ
+    .user_side_menu
+      = link_to user_path(current_user.id) do
+        マイページ
+    .user_side_menu
+      = link_to "#" do
+        お気に入り商品一覧
+    .user_side_menu
+      = link_to new_item_path do
+        出品する
+    .user_side_menu
+      = link_to  do
+        出品中の商品一覧
+    .user_side_menu
+      = link_to "#" do
+        売却済の商品一覧
+    .user_side_menu
+      = link_to "#" do
+        コメントがついた商品一覧
+    .user_side_subtitl
+      各種設定
+    .user_side_menu
+      = link_to edit_user_registration_path do
+        会員情報の編集
+    .user_side_menu
+      = link_to "#" do
+        お届先住所の編集
+    .user_side_menu
+      = link_to new_credit_card_path, data: {"turbolinks"=> false} do
+        お支払い情報の登録
+    .user_side_menu
+      = link_to destroy_user_session_path, method: :delete do
+        ログアウト
+  .user_body
+    .user_body_bgc
+      .userlisence
+        .userlisence-title
+          Trading License
+        .userlisence-name
+          = @user.nickname
+      .prof
+        .prof_data
+          登録日:
+          = "#{@user.created_at.year}年"
+          = "#{@user.created_at.month}月"
+          = "#{@user.created_at.day}日"
+        .prof_data
+          現在の出品数：
+          = @items.count
+        .prof_data
+          コメントされた数：0
+        .prof_data
+          コメントした数：0
+    .user_body_subtitle
+      最近出品した商品
+    .user_item
+      .user_body_lists
+        - @items.each do |item|
+          .user_body_list 
+            = link_to item_path(current_user.id) do  
+              =image_tag item.images[0].src.url, class: "user_body_image"
+
+

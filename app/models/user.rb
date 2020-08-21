@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :password ,presence: true, length: { minimum: 6 }
   validates :nickname ,presence: true
 
+  has_many :items, dependent: :destroy
   has_one :profile
   has_one :sending
   has_one :credit_card, dependent: :destroy

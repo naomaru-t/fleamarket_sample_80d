@@ -47,3 +47,104 @@
     }
   }
 }
+.user{
+  display: flex;
+  width: 100vw;
+  max-width: 1040px;
+  height: 90vh;
+  margin: 0 auto;
+  padding: 20px 0px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  .user_side{
+    height: 100%;
+    width: 250px;
+    .user_side_menu{
+      width: 100%;
+      height: 40px;
+      margin-top: 8px;
+      border: none;
+      background-color: #ffffff;
+      a{
+        text-decoration: none;
+        color: #000000;
+        line-height: 40px;
+        font-size: 14px;
+        display: block;
+        padding-left: 10px;
+        border-radius: 4px;
+      }
+      a:hover{
+        background-color: rgba(16, 223, 212, 0.753);
+        color: snow;
+      }
+    }
+  }
+  .user_body{
+    width: calc(100% - 250px);
+    background-color: #ffffff;
+    margin: 5px 0px 0px 20px;
+    border-radius: 4px;
+    .user_body_bgc{
+      width: 100%;
+      height: 200px;
+      background-color: #3ccace;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      color: #ffffff;
+      padding: 40px 30px;
+      .userlisence{
+        width: 200px;
+        height: 120px;
+        background-color: #ffffff;
+        color: #000000;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        font-weight: bold;
+        .userlisence-title{
+          font-size: 18px;
+          border-bottom: 2px solid #3ccace;
+          color: #3ccace;
+          padding-bottom: 10px;
+        }
+        .userlisence-name{
+          margin-top: 18px;
+          font-size: 20px;
+          color: #333333;
+        }
+      }
+      .prof{
+        margin-left: 50px;
+        font-weight: bold;
+        .prof_data{
+          margin-top: 5px;
+        }
+      }
+    }
+    .user_body_subtitle{
+      font-size: 18px;
+      font-weight: bold;
+      padding-left: 30px;
+      margin-bottom: 10px;
+    }
+    .user_item{
+      height: 63%;
+      overflow: scroll;
+      .user_body_lists{
+        margin: 10px auto;
+        display: flex;
+        flex-wrap: wrap;
+        .user_body_list{
+          width: calc(100% / 3);
+          .user_body_image{
+            width: 100%;
+          }
+        }
+      }
+   }
+  }
+}
+
