@@ -1,11 +1,11 @@
 .create
   .create__frame
     .create__frame__message
-      登録が完了しました。
-    %ul.create__frame__btns
-      %li.my_page_link
-        -#= link_to users_path(current_user.id), class: "my_page_link__btn" do
-        -#  マイページに戻る
-      %li.credit_cards_index_link
+      登録が完了しました
+    .create__frame__btns
+      .my_page_link
+        = link_to "#", class: "my_page_link__btn" do
+          マイページに戻る
+      .credit_cards_index_link
         = link_to credit_card_path(current_user.id), class: "credit_cards_index_link__btn" do 
           登録カード一覧
