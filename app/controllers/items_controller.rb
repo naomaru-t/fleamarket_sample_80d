@@ -55,11 +55,11 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children #-カテゴリ子要素呼び出し
-    @category_children = Category.find("#{params[:parent_id]}").children
+    @category_children = Category.find(params[:parent_id]).children
   end
 
   def get_category_grandchildren #-カテゴリ孫要素呼び出し
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end 
 
   private
