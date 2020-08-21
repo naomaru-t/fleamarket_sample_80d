@@ -12,29 +12,30 @@
         font-size: 16px;
         &--lists {
           list-style-type: none;
-          margin-top: 20px;
+          margin-top: 10px;
           &--list {
             text-align: center;
-            font-size: 10px;
+            font-size: 15px;
             font-family: sans-serif;
             margin-bottom: 8px;
+            .list-detail{
+              font-size: 10px;
+              text-decoration: none;
+              color: white;
+            }
           }
         }
       }
     }
   }
-
   &__logo {
     text-align: center;
-
   }
-
   &__title {
     color: white;
     text-align: center;
   }
 }
-
 .footer__logo--link--image {
   width: 160px;
   height: 46px;
