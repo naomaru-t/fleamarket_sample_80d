@@ -1,0 +1,110 @@
+// 商品詳細機能のデザイン
+html {
+  height: 100%;
+}
+body {
+  margin: 0px;
+  height: 100%;
+}
+.main {
+  background-color: #f8f8f8;
+  .topContent {
+    padding: 0 200px;
+    .itemBox {
+      padding: 15px 20px;
+      background-color: white;
+      &__title {
+        text-align: center;
+        margin-top: 5px;
+        height: 50px;
+        font-weight: bold;
+      }
+      &__image {
+        &--main {
+          .main__photo {
+            width: 400px;
+            height: 200px;
+            margin-bottom: 15px;
+          }
+            &--sub {
+            display: flex;
+            justify-content: space-evenly;
+              &--list {
+                display:flex;
+                .sub__photo {
+                  margin-left: 15px;
+                }
+              }
+          }
+        }
+      }
+      &__price {
+        text-align: center;
+      }
+      &__detail {
+        word-wrap: break-word;
+        height: 100px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    }
+    .commentBox {
+      margin-top: 10px; 
+      background-color: white;
+      padding: 20px 20px 0 20px;
+      &__textbox{
+        width: 100%;
+      }
+      &__form {
+        padding: 15px 0;
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+        &--submit { 
+          height: 40px;
+          text-align: center;
+          font-size: 18px;
+          width: 400px;
+          background-color: #3CCACE;
+          color: #fff;
+          border: 1px solid #3CCACE;
+          border-radius: 100px;
+        }
+        .fas.fa-comment {
+          position: absolute;
+          top: 27px;
+          left: 125px;
+          color: #fff;
+        }
+      }
+    }
+    .links {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+    li {
+      list-style: none;
+      text-align: center;
+    }
+    td {
+      border: solid 1px black;
+    } 
+    table td:nth-child(1) {
+      text-align: center;
+      width: 120px;
+      background-color: #eee;
+      font-weight: bold;
+    }
+    table td:nth-child(2) {
+      padding-left: 10px;
+      background-color: white;
+      font-weight: bold;
+    }
+}
+
+
+

@@ -1,6 +1,7 @@
 class CreditCardsController < ApplicationController
   before_action :move_to_root
-  before_action :set_card , only: [:show, :destroy]
+  before_action :set_card , only: [:show, :destroy, :buy, :pay]
+  before_action :set_item , only: [:buy, :pay]
 
   require "payjp"
 
@@ -84,9 +85,56 @@ class CreditCardsController < ApplicationController
   end
 
   def buy
+    if user_signed_in?
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+      if @card.blank?
+        @card_info = ""
+      else  
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @card_info = customer.cards.retrieve(@card.card_id)
+        case @card_info.brand 
+          when  "Visa"
+            @card_src = "visa300px.gif"
+          when  "JCB"
+            @card_src = "jcb300px.gif"
+          when  "MasterCard"
+            @card_src = "master300px.gif"
+          when  "American Express"
+            @card_src = "amex300px.gif"
+          when  "Diners Club"
+            @card_src = "diners300px.gif"
+        end
+      end 
+    else  
+      redirect_to root_path 
+    end
   end
 
   def pay
+    if @item.sellstatus_id == 2
+      redirect_to buy_credit_card_path(@item)
+    else 
+      @item.with_lock do
+        if current_user.credit_card.present?
+          Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+          charge = Payjp::Charge.create(
+            amount: @item.price,
+            customer: Payjp::Customer.retrieve(@card.customer_id),
+            currency: 'jpy'
+          )
+          @item.update!(sellstatus_id: 2)
+          @item.update!(buyer_id: current_user.id)
+        else  
+          Payjp::Charge.create(
+            amount: @item.price,
+            card: params['payjp-token'],
+            currency: 'jpy'
+          )
+          @item.update!(sellstatus_id: 2)
+          @item.update!(buyer_id: current_user.id)
+        end
+      end
+    end
   end
 
   private
@@ -96,6 +144,13 @@ class CreditCardsController < ApplicationController
 
   def set_card
     @card = CreditCard.find_by(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      redirect_to root_path 
+    end
   end
 
 end
