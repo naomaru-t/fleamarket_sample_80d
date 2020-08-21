@@ -123,6 +123,7 @@ class CreditCardsController < ApplicationController
             currency: 'jpy'
           )
           @item.update!(sellstatus_id: 2)
+          @item.update!(buyer_id: current_user.id)
         else  
           Payjp::Charge.create(
             amount: @item.price,
@@ -130,6 +131,7 @@ class CreditCardsController < ApplicationController
             currency: 'jpy'
           )
           @item.update!(sellstatus_id: 2)
+          @item.update!(buyer_id: current_user.id)
         end
       end
     end
@@ -146,6 +148,9 @@ class CreditCardsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      redirect_to root_path 
+    end
   end
 
 end
