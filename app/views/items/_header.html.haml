@@ -1,23 +1,24 @@
 .header
-  .header__Inner
-    .header__Inner--mainHeader
-      %h1.header__Inner--mainHeader--icon
-        =link_to root_path, class: "header__Inner--mainHeader--icon--link" do
-          =image_tag 'material/logo/logo.png', class:"headerImage"
-      .header__Inner--mainHeader--search
-        = form_with url: "#", method: :get, lacal: true do |f|
-          .header__Inner--mainHeader--search--searchBox
-            = f.text_field :search, class: "header__Inner--mainHeader--search--searchBox--text", placeholder: "キーワードから探す"
-            = f.button class: "submitBtn" do
-              = image_tag "material/icon/icon-search 1.png", alt: "検索", class: "searchIcon"
+  .headerInner
+    .headerInner__mainHeader 
+      .headerInner__mainHeader__icon 
+        =link_to root_path, class: "headerInner__mainHeader__icon__img" do
+          =image_tag 'material/logo/logo.png' 
+      .headerInner__mainHeader__search-box
+        .headerInner__mainHeader__search-box__form
+          = form_with url: "#", method: :get, lacal: true,class: "form" do |f|
+            = f.text_field :search, class: "input-text", placeholder: "キーワードから探す"
+            = f.button class: "submit-btn" do
+              .searchBox__icon
+                = image_tag "material/icon/icon-search 1.png", alt: "検索"
 
-    .header__Inner--nav
-      %ul.header__Inner--nav--listLeft
-        %li.header__Inner--nav--listLeft--categ
-          = link_to "#", class: "categoryBtn", id: "left-category" do
+    .headerInner__nav
+      %ul.list-left
+        %li.list-left__category-list
+          = link_to "#", class: "btn", id: "left-category" do
             カテゴリー
-          .visibleTree
-            %ul.firstMenu__parents
+          -# .visibleTree
+          -#   %ul.firstMenu__parents
               -# - @parent.each do |parent|
               -#   %li.firstMenu__parents--parent 
               -#     = link_to "#{parent.name}", "#", class: "item-link"
@@ -33,22 +34,22 @@
                   -#             = link_to "#{grandchildren.name}", "#", class: "item-link"
 
               
-        %li.header__Inner--nav--listLeft--brand
-          = link_to "#", class: "categoryBtn", id: "left-category" do
+        %li.list-left__brand-list
+          = link_to "#", class: "btn", id: "left-category" do
             ブランド
 
-      %ul.header__Inner--nav--listRight
-        %li.header__Inner--nav--listRight--roguin
+      %ul.list-right
+        %li.list-right__log-in
           - if user_signed_in?
-            = link_to destroy_user_session_path, class:"rogBtn", method: :delete do
+            = link_to destroy_user_session_path, class:"right-btn", method: :delete do
               ログアウト
           - else
-            = link_to new_user_session_path, class:"rogBtn", method: :get do
+            = link_to new_user_session_path, class:"right-btn", method: :get do
               ログイン
-        %li.header__Inner--nav--listRight--sinki
+        %li.list-right__sign-up
           - if user_signed_in?
-            = link_to "#", class:"rogBtn", method: :get do
+            = link_to "#", class:"right-btn", method: :get do
               マイページ
           - else
-            = link_to new_user_registration_path, class:"rogBtn", method: :get do
+            = link_to new_user_registration_path, class:"right-btn", method: :get do
               新規会員登録
