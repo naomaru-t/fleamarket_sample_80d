@@ -56,3 +56,9 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
+
+
+$(window).on("load resize", function(){
+  let width = $(".user_body_image").width();
+  $(".user_body_image").css({"height": width});
+});
