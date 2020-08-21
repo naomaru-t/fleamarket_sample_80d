@@ -1,24 +1,17 @@
 // 商品詳細機能のデザイン
 html {
-  height: 100vh;
+  height: 100%;
 }
 body {
   margin: 0px;
   height: 100%;
 }
-.header {
-  height: 100px;
-  background-color: skyblue;
-}
 .main {
-  height: 100%;
   background-color: #f8f8f8;
-
   .topContent {
-    height: 600px;
-    padding: 0 100px;
+    padding: 0 200px;
     .itemBox {
-      padding: 0 20px;
+      padding: 15px 20px;
       background-color: white;
       &__title {
         text-align: center;
@@ -29,7 +22,7 @@ body {
       &__image {
         &--main {
           .main__photo {
-            width: 500px;
+            width: 400px;
             height: 200px;
             margin-bottom: 15px;
           }
@@ -65,6 +58,7 @@ body {
         width: 100%;
       }
       &__form {
+        padding: 15px 0;
         position: relative;
         width: 400px;
         margin: 0 auto;
@@ -80,14 +74,14 @@ body {
         }
         .fas.fa-comment {
           position: absolute;
-          top: 12px;
+          top: 27px;
           left: 125px;
           color: #fff;
         }
       }
     }
     .links {
-      padding-left: 0px;
+      padding: 10px 0;
       display: flex;
       justify-content: space-between;
     }

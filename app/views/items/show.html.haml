@@ -35,9 +35,10 @@
                   %br= link_to "#{@category_grandchild.name}","#" 
               -else
                 %td
-                  %br= link_to "#{@category_child.name}","#"
                   = link_to "#{@category_parent.name}","#"
-                  = link_to "#{@category_grandchild.name}","#"
+                  %br/
+                  = link_to "#{@category_child.name}","#"
+                  %br= link_to "#{@category_grandchild.name}","#"
             %tr
               %td.table__title ブランド
               %td
@@ -66,7 +67,7 @@
           - if user_signed_in?
             - if current_user.id == @item.saler_id
               = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
-              = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+              = link_to "商品の削除", item_path(@item.id), method: :delete, data: { confirm: "【確認】マンガを削除してもよろしいですか？" }, class: "destory"
             - else 
               -# リンク先は購入実装画面が完了してから足す予定です
               = link_to "購入画面に進む" 
