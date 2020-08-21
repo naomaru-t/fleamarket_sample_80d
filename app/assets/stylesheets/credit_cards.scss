@@ -377,11 +377,153 @@
             border-radius: 20px;
           }
           a:hover{
-            background-color: rgba(16, 223, 188, 0.753);
+            display: flex;
+            justify-content: space-around;
           }
+          }
+        }
+      }
+    }
+  }
+
+
+.create{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(230, 230, 230);
+  text-align: center;
+  padding-top: 50px;
+  &__frame{
+    margin: 0 auto;
+    width: 60%;
+    max-width: 700px;
+    min-width: 550px;
+    background-color: rgb(255, 255, 255);
+    &__message{
+      padding: 25px;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid rgb(245,245,245);
+    }
+    &__btns{
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 30px;
+      padding-top: 20px;
+      .my_page_link{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
+        }
+      }
+      .credit_cards_index_link{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
         }
       }
     }
   }
 }
 
+.destroy{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(230, 230, 230);
+  text-align: center;
+  padding-top: 50px;
+  &__frame{
+    margin: 0 auto;
+    width: 60%;
+    max-width: 700px;
+    min-width: 550px;
+    background-color: rgb(255, 255, 255);
+    &__message{
+      padding: 25px;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid rgb(245,245,245);
+    }
+    &__btns{
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 30px;
+      padding-top: 20px;
+      .credit_card_new_link{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
+        }
+      }
+      .my_page_link{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
+        }
+      }
+    }
+  }
+}
+
+.pay{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(230, 230, 230);
+  text-align: center;
+  padding-top: 50px;
+  &__frame{
+    margin: 0 auto;
+    width: 60%;
+    max-width: 700px;
+    min-width: 550px;
+    background-color: rgb(255, 255, 255);
+    &__message{
+      padding: 25px;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid rgb(245,245,245);
+    }
+    &__btns{
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 30px;
+      padding-top: 20px;
+      .link__root{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
+        }
+      }
+      .link__user{
+        a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(16, 223, 188, 0.753);
+        padding: 10px 30px;
+        border-radius: 20px;
+        }
+      }
+    }
+  }
+}
