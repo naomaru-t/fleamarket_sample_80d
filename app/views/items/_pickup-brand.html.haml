@@ -4,13 +4,13 @@
       ピックアップブランド
     .pickup__brand--subtitle2
       =link_to "#", class:"pickup__category--subtitle2--link" do
-        アーカイバ
+        アーカイバ（未実装）
     .pickup__brand--itemlists
       .pickup__brand--itemlists--image
         .pickup__brand--itemlists--image--itembtn
           
           
-      %h3.pickup__brand--itemlists--detail
+      .pickup__brand--itemlists--detail
         %ul.pickup__brand--itemlists--detail--boxes
           - @items.each do |item|
             %li.pickup__brand--itemlists--detail--boxes--box

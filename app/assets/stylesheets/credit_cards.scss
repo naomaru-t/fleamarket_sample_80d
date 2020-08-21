@@ -242,3 +242,146 @@
   }
 }
 
+.buy{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding: 50px 0;
+  background-color: rgb(230, 230, 230);
+  .buy-contents{
+    margin: 0 auto;
+    width: 60%;
+    max-width: 700px;
+    min-width: 550px;
+    background-color: rgb(255, 255, 255);
+    .section{
+      max-width: 400px;
+      padding: 24px 16px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgb(245,245,245);
+      .sold-out{
+        width: 80%;
+        background-color: gray;
+        height: 60px;
+        line-height: 60px;
+        color: white;
+        font-size: 20px;
+        margin: 0 auto;
+      }
+      .buy-item{
+        display: flex;
+        width: 100%;
+        &__image{
+          width: 30%;
+          overflow: hidden;
+        }
+        &__items{
+          width: 100%;
+          margin-left: 25px;
+          &__name{
+            display: flex;
+            font-size: 20px;
+          }
+          &__price{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+          }
+        }
+      }
+      .buy-prices{
+        display: flex;
+        justify-content: space-between;
+        &__title{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        &__price{
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+      .buy-method{
+        display: flex;
+      }
+      .newcard-link{
+        display: flex;
+        text-decoration: none;
+        margin-top: 10px;
+        align-items: center;
+        color: rgb(0, 149, 238);
+      }
+      .credit_card__info{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        margin-top: 20px;
+        .info{
+          border: 1px solid rgba(16, 223, 188, 0.753);
+          padding: 10px 30px;
+          border-radius: 10px;
+          font-weight: bold;
+          .number{
+            margin-bottom: 10px;
+          }
+        }
+        .card-image{
+          padding: 20px;
+          width: 109px;
+        }
+      }
+      .send-info{
+        .send-address{
+          display: flex;
+          justify-content: space-between;
+          .title{
+            font-weight: bold;
+          }
+          .edit{
+            a{
+              text-decoration: none;
+              color: rgb(0, 149, 238);
+            }
+          }
+        }
+        .send-postcode{
+          display: flex;
+          margin-top: 10px;
+        }
+        .send-user__address{
+          display: flex;
+        }
+        .send-user__name{
+          display: flex;
+        }
+      }
+      .purchase{
+        &__message{
+          margin-bottom: 20px;
+        }
+        input{
+          width: 40%;
+        }
+        &__text{
+          font-size: 15px;
+          color: red;
+          margin-top: 10px;
+        }
+        &__button{
+          a{
+            background-color: rgba(21, 206, 175, 0.742);
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            padding: 10px 70px;
+            border-radius: 20px;
+          }
+          a:hover{
+            background-color: rgba(16, 223, 188, 0.753);
+          }
+        }
+      }
+    }
+  }
+}
+
