@@ -20,52 +20,51 @@ describe Item do
     end
 
     it "category_idがない場合は登録できないこと" do
-      # itemsテーブルではカラム名はcategoryになっている
       item = build(:item, category_id: "")
       item.valid?
-      expect(item.errors[:category]).to include("を入力してください")
+      expect(item.errors[:category_id]).to include("を入力してください")
+    end
+
+    it "postagepayer_idがない場合は登録できないこと" do
+      item = build(:item, postagepayer_id: "")
+      item.valid?
+      expect(item.errors[:postagepayer_id]).to include("を入力してください")
+    end
+
+    it "postagetype_idがない場合は登録できないこと" do
+      item = build(:item, postagetype_id: "")
+      item.valid?
+      expect(item.errors[:postagetype_id]).to include("を入力してください")
+    end
+
+    it "prefecture_idがない場合は登録できないこと" do
+      item = build(:item, prefecture_id: "")
+      item.valid?
+      expect(item.errors[:prefecture_id]).to include("を入力してください")
     end
 
     it "brand_nameがなくてもは登録できること" do
-      # itemsテーブルではカラム名はbrand_idになっている
-      item = build(:item, brand_name: "")
+      item = build(:item, brand_id: "")
       item.valid?
       expect(true).to_not be_nil
     end
 
-    it "item_statusがない場合は登録できないこと" do
-      # itemsテーブルではカラム名はcondition_idになっている
-      item = build(:item, item_status: "")
+    it "sellstatus_idがない場合は登録できないこと" do
+      item = build(:item, sellstatus_id: "")
       item.valid?
-      expect(item.errors[:item_status]).to include("を入力してください")
+      expect(item.errors[:sellstatus_id]).to include("を入力してください")
     end
 
-    # これはテーブルに存在しない
-    # it "delivery_feeがない場合は登録できないこと" do
-
-    #   item = build(:item, delivery_fee: "")
-    #   item.valid?
-    #   expect(item.errors[:delivery_fee]).to include("を入力してください")
-    # end
-
-    it "shipping_originがない場合は登録できないこと" do
-      item = build(:item, shipping_origin: "")
+    it "preparationdays_idがない場合は登録できないこと" do
+      item = build(:item, preparationdays_id: "")
       item.valid?
-      expect(item.errors[:shipping_origin]).to include("を入力してください")
-    end
-
-    it "days_until_shippingがない場合は登録できないこと" do
-      # itemsテーブルではpreparation_idになっている
-      item = build(:item, days_until_shipping: "")
-      item.valid?
-      expect(item.errors[:days_until_shipping]).to include("を入力してください")
+      expect(item.errors[:preparationdays_id]).to include("を入力してください")
     end
       
-    it "exhibition_priceがない場合は登録できないこと" do
-      # itemsテーブルではpriceになっている
-      item = build(:item, exhibition_price: "")
+    it "priceがない場合は登録できないこと" do
+      item = build(:item, price: "")
       item.valid?
-      expect(item.errors[:exhibition_price]).to include("を入力してください")
+      expect(item.errors[:price]).to include("を入力してください")
     end
   end
 

@@ -1,0 +1,100 @@
+- if @item.sellstatus_id == 2
+  .buy
+    .buy-contents
+      .section
+        %h3.title 
+          購入内容の確認
+      .section
+        .buy-item
+          = image_tag @item.images[0].src.url, class: "buy-item__image"
+          .buy-item__items
+            .buy-item__items__name
+              = @item.name
+            .buy-item__items__price
+              = @item.postagepayer.name
+              ¥
+              = @item.price  
+      .section
+        .sold-out
+          この商品は売り切れました
+- else  
+  .buy
+    .buy-contents
+      .section
+        %h3.title 
+          購入内容の確認
+      .section
+        .buy-item
+          = image_tag @item.images[0].src.url, class: "buy-item__image"
+          .buy-item__items
+            .buy-item__items__name
+              = @item.name
+            .buy-item__items__price
+              = @item.postagepayer.name
+              ¥
+              = @item.price       
+      .section
+        .buy-prices
+          .buy-prices__title
+            支払い金額
+          .buy-prices__price 
+            ¥
+            = @item.price
+      .section
+        - if @card_info.blank?
+          .buy-method 
+            支払い方法
+          = link_to new_credit_card_path, class: "newcard-link" do 
+            = icon('fas', 'plus-circle')
+            登録してください
+        - else
+          .buy-method 
+            支払い方法
+          .credit_card__info 
+            .info
+              .number
+                = "**** **** ****" + @card_info.last4
+              .expiration
+                = @card_info.exp_month.to_s + "月 /" + @card_info.exp_year.to_s.slice(2,3) + "年"
+            = image_tag "#{@card_src}", alt: @card_info.brand, class: "card-image"
+
+
+      .section
+        .send-info
+          .send-address
+            .title
+              配送先
+            .edit
+              =link_to "#" do 
+                変更する 
+                %span
+                  >
+          .send-postcode
+            〒
+            = current_user.sending.post_code
+          .send-user__address
+            = current_user.sending.city
+            = current_user.sending.house_number
+            = current_user.sending.building_name 
+          .send-user__name 
+            = current_user.sending.family_name
+            = current_user.sending.first_name
+      .section
+        - if @card_info.blank?
+          .purchase
+            %p.purchase__message
+              クレジット登録しないで購入する
+            = form_tag(action: :pay, method: :post) do
+              %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_3f51f9d05bf06841e98690d1", "data-lang": "ja"}
+            .purchase__text
+              ※商品の購入は
+              %br/
+              クレジットカード決済のみとなっております。
+        - else 
+          .purchase
+            %p.purchase__message
+              登録したクレジットカードで購入する
+            .purchase__button
+              = link_to pay_credit_card_path(@item.id), method: :post do
+                購入する
+
