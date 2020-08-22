@@ -40,15 +40,11 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
   $('#image-box').on('click', '.js-remove', function() {
-    // const targetIndex = $(this).parent().data('index');
     const targetIndex = $(this).prev().data('index');
-    console.log(targetIndex)
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-    // $(this).parent().remove();
-    // $(`img[data-index="${targetIndex}"]`).remove();
     $(`#prv_${targetIndex}`).remove();
     $(this).prev().remove();
     $(this).remove();
