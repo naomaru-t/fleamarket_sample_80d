@@ -13,18 +13,16 @@
               - @item.images.each_with_index do |image, i|
                 = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
           = f.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :src, class: 'js-file', :required => ""
-              %span.js-remove 削除
-
+            %label.js-file_group{"data-index" => "#{image.index}"}
+              = icon('far', 'image', class: 'Form__icon')
+              = image.file_field :src, class: 'js-file', style: "visibility: hidden"
+            %span.js-remove 削除
             - if @item.persisted?
               = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-
           - if @item.persisted?
             .js-file_group{"data-index" => "#{@item.images.count}"}
               = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
               .js-remove 削除
-
       .sell__item
         .form_label
           %label 商品名
@@ -34,7 +32,6 @@
           %label 商品説明
           %span.hissu 必須
         = f.text_area :introduction, placeholder: "商品の説明（必須1,000文字以内）", class: "form__textarea" , maxlength: 1000, :required => ""
-
       .sell__details
         .form_label
           %label 商品の詳細
@@ -47,7 +44,6 @@
               .lavel__name 
                 .lavel__Required
                 = f.collection_select :category_id, @category_parent_array, :id, :name,{ include_blank: "選択してください"},{class:"select_field", id: "category_id", :required => ""}
-
         = f.fields_for :brand do |brand|
           .form_label
             %label ブランド
@@ -89,13 +85,10 @@
         %span.hissu 必須
         %span ¥
         = f.number_field :price, placeholder: "0", class: "form__input__price", min: 300, max: 9999999, :required => ""
-
       
       .sell__btn
         = f.submit "出品する", class: "sell-btn-blue",id: "send"
         = link_to "戻る", :root, class: "back-btn"
-
       = f.hidden_field :sellstatus_id, value: 1 #sellstatusの初期値として1なら出品中、2なら売却済み
       = f.hidden_field :saler_id, value: current_user.id #商品に出品者ID(saler_id)を付与
-
   = render 'footer'

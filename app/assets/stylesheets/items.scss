@@ -44,8 +44,24 @@ img {
   margin-right: 2px;
 }
 
+.Form__icon {
+  font-size: 25px;
+}
+.js-file_group {
+  display: block;
+}
+
+.js-file {
+  position: absolute;
+}
+.js-remove {
+  position: relative;
+  left: 90px;
+  bottom:25px;
+}
+
+
 .sellmain {
-  background-color: lightgray;
 
   .sellheader {
     height: 200px;
