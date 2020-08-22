@@ -7,5 +7,5 @@
         = link_to root_path, class: "link__root__path" do
           トップページに戻る
       .link__user
-        = link_to "#", class: "link__user__path" do 
+        = link_to user_path(current_user.id), class: "link__user__path" do 
           マイページに戻る

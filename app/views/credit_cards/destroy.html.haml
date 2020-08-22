@@ -7,5 +7,5 @@
         = link_to new_credit_card_path,  class: "credit_card_new_link__btn", data: {"turbolinks"=> false}  do 
           クレジットカード新規登録
       .my_page_link
-        = link_to "#", class: "my_page_link__btn" do 
+        = link_to user_path(current_user.id), class: "my_page_link__btn" do 
           マイページに戻る
