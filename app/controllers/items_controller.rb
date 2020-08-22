@@ -28,9 +28,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_parent_array = Category.where(ancestry: nil) #-カテゴリ親要素呼び出し
-    @category_child_array = @category_parent.children
-    @category_grandchild_array = @category_child.children
+    if user_signed_in?
+      if current_user.id == @item.saler_id
+        @category_parent_array = Category.where(ancestry: nil) #-カテゴリ親要素呼び出し
+        @category_child_array = @category_parent.children
+        @category_grandchild_array = @category_child.children
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end 
   end
 
   def update
