@@ -50,9 +50,16 @@ img {
 .js-file_group {
   display: block;
 }
-// .js-remove {
-//   display: inline-block;
-// }
+
+.js-file {
+  position: absolute;
+}
+.js-remove {
+  position: relative;
+  left: 90px;
+  bottom:25px;
+  // display: inline-block;
+}
 
 
 .sellmain {
