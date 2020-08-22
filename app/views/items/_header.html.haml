@@ -29,7 +29,7 @@
               ログイン
         %li.list-right__sign-up
           - if user_signed_in?
-            = link_to "#", class:"right-btn", method: :get do
+            = link_to user_path(current_user.id), class:"right-btn", method: :get do
               マイページ
           - else
             = link_to new_user_registration_path, class:"right-btn", method: :get do
