@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
   end
 
   def new
+    if user_signed_in?
+    else
+      redirect_to root_path
+    end
     @item = Item.new
     @item.images.new #-商品出品時に画像も同時に保存されるように記述
     @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
