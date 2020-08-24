@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    if @item.save!
+    if @item.save
       item = Item.find(@item.id)
       redirect_to root_path
     else
@@ -46,6 +46,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @category_parent_array = Category.where(ancestry: nil) #-カテゴリ親要素呼び出し
+    @category_child_array = @category_parent.children
+    @category_grandchild_array = @category_child.children
     if @item.update(item_params)
       redirect_to root_path
     else
