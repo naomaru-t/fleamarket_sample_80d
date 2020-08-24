@@ -80,7 +80,6 @@
               = form.submit "コメントする", class: "commentBox__form--submit"
               %i.fas.fa-comment
         %ul.links
-          %li= link_to '前のページ'
-          %li= link_to '後ろのページ'
+          %li= link_to '前のページ', root_path
       
   =render"footer"

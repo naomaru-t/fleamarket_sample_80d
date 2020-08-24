@@ -4,9 +4,6 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:images).order('items.created_at DESC').limit(5).where.not(sellstatus_id: 2).where(sellstatus_id: 1)
     @parent = Category.where(ancestry: nil)
-    # @parents = Category.all.order("id ASK").limit(13)
-    # 後に実装予定
-    # @items = Item.includes(:images).order('created_at DESC').limit(5).where.not(condition: 1).where(condition: 0)
   end
 
   def new
@@ -27,6 +24,9 @@ class ItemsController < ApplicationController
       item = Item.find(@item.id)
       redirect_to root_path
     else
+      @item.images.new #-商品出品時に画像も同時に保存されるように記述
+      @item.build_brand #-商品出品時にブランドも同時に保存されるように記述
+      @category_parent_array = Category.where(ancestry: nil) #-カテゴリ親要素呼び出し
       render :new
     end
   end
