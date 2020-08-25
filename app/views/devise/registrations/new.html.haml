@@ -22,7 +22,7 @@
         .block 必須
       - if @minimum_password_length
         %em
-          (#{@minimum_password_length} 字以上)
+          ( 7字以上 )
       %br/
       = f.password_field :password, autocomplete: "new-password"
     .field
